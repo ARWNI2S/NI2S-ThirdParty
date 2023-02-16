@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\admin-lte.css" />
+    <None Remove="Assets\bootstrap.css" />
+    <None Remove="Assets\chart.js" />
+    <None Remove="Assets\fa-solid-900.ttf" />
+    <None Remove="Assets\fa-solid-900.woff" />
+    <None Remove="Assets\fa-solid-900.woff2" />
+    <None Remove="Assets\font-awesome.css" />
+    <None Remove="Assets\html5shiv.js" />
+    <None Remove="Assets\respond.js" />
+    <None Remove="Assets\skin-purple.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\admin-lte.css" />
+    <EmbeddedResource Include="Assets\bootstrap.css" />
+    <EmbeddedResource Include="Assets\chart.js" />
+    <EmbeddedResource Include="Assets\fa-solid-900.ttf" />
+    <EmbeddedResource Include="Assets\fa-solid-900.woff" />
+    <EmbeddedResource Include="Assets\fa-solid-900.woff2" />
+    <EmbeddedResource Include="Assets\font-awesome.css" />
+    <EmbeddedResource Include="Assets\html5shiv.js" />
+    <EmbeddedResource Include="Assets\respond.js" />
+    <EmbeddedResource Include="Assets\skin-purple.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OrleansDashboard\OrleansDashboard.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="OrleansLogo.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+</Project>
