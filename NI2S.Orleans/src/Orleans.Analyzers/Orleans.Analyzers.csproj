@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <PackageId>Microsoft.Orleans.Analyzers</PackageId>
+    <PackageId>NI2S.Orleans.Analyzers</PackageId>
     <Title>Microsoft Orleans Analyzers</Title>
     <Description>C# Analyzers for Microsoft Orleans.</Description>
     <TargetFramework>netstandard2.0</TargetFramework>

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <PackageId>Microsoft.Orleans.Persistence.Redis</PackageId>
+    <PackageId>NI2S.Orleans.Persistence.Redis</PackageId>
     <Title>Microsoft Orleans Persistence Redis Provider</Title>
     <Description>Microsoft Orleans Persistence implementation that uses Redis</Description>
     <PackageTags>$(PackageTags) Redis Persistence</PackageTags>

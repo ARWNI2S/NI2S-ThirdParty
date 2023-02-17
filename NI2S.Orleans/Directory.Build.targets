@@ -33,9 +33,9 @@
     </ProjectReference>
   </ItemGroup>
 
-  <Import Condition=" '$(OrleansBuildTimeCodeGen)' == 'true' " Project="$(MSBuildThisFileDirectory)src/Orleans.CodeGenerator/build/Microsoft.Orleans.CodeGenerator.props" />
-  <Import Condition=" '$(OrleansBuildTimeCodeGen)' == 'msbuild' " Project="$(MSBuildThisFileDirectory)src/Orleans.CodeGenerator.MSBuild/build/Microsoft.Orleans.CodeGenerator.MSBuild.targets" />
-  <Import Condition=" '$(OrleansBuildTimeCodeGen)' == 'true' or '$(OrleansBuildTimeCodeGen)' == 'msbuild' " Project="$(MSBuildThisFileDirectory)src/Orleans.Sdk/build/Microsoft.Orleans.Sdk.targets" />
+  <Import Condition=" '$(OrleansBuildTimeCodeGen)' == 'true' " Project="$(MSBuildThisFileDirectory)src/Orleans.CodeGenerator/build/NI2S.Orleans.CodeGenerator.props" />
+  <Import Condition=" '$(OrleansBuildTimeCodeGen)' == 'msbuild' " Project="$(MSBuildThisFileDirectory)src/Orleans.CodeGenerator.MSBuild/build/NI2S.Orleans.CodeGenerator.MSBuild.targets" />
+  <Import Condition=" '$(OrleansBuildTimeCodeGen)' == 'true' or '$(OrleansBuildTimeCodeGen)' == 'msbuild' " Project="$(MSBuildThisFileDirectory)src/Orleans.Sdk/build/NI2S.Orleans.Sdk.targets" />
   <ItemGroup>
     <!-- Enable code generator -->
     <ProjectReference

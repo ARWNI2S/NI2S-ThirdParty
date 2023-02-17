@@ -1043,7 +1043,7 @@ namespace Orleans
         LogConsistency_ProtocolFatalError = LogConsistencyBase + 4,
 
         // Note: individual Service Fabric error codes are defined in
-        // Microsoft.Orleans.ServiceFabric.Utilities.ErrorCode.
+        // NI2S.Orleans.ServiceFabric.Utilities.ErrorCode.
         ServiceFabricBase = Runtime + 4400,
 
         TransactionsBase = Runtime + 4500,

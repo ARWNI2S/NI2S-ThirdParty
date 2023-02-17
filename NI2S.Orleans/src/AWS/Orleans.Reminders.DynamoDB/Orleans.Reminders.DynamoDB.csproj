@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <PackageId>Microsoft.Orleans.Reminders.DynamoDB</PackageId>
+    <PackageId>NI2S.Orleans.Reminders.DynamoDB</PackageId>
     <Title>Microsoft Orleans AWS DynamoDB Reminders Provider</Title>
     <Description>Microsoft Orleans reminders provider backed by AWS DynamoDB</Description>
     <PackageTags>$(PackageTags) AWS DynamoDB</PackageTags>

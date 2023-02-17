@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <PackageId>Microsoft.Orleans.CodeGenerator.MSBuild</PackageId>
+    <PackageId>NI2S.Orleans.CodeGenerator.MSBuild</PackageId>
     <TargetFramework>net7.0</TargetFramework>
     <RuntimeIdentifiers>win-x64;linux-x64</RuntimeIdentifiers>
     <PackageDescription>Code generator for projects using Orleans.Serialization with MSBuild</PackageDescription>

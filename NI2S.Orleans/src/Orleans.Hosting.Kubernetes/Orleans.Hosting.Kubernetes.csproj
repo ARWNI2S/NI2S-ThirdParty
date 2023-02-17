@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <PackageId>Microsoft.Orleans.Hosting.Kubernetes</PackageId>
+    <PackageId>NI2S.Orleans.Hosting.Kubernetes</PackageId>
     <Title>Microsoft Orleans Hosting for Kubernetes</Title>
     <Description>Microsoft Orleans hosting support for Kubernetes</Description>
     <PackageTags>$(PackageTags) Kubernetes k8s</PackageTags>

@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <PackageId>Microsoft.Orleans.Reminders.AdoNet</PackageId>
+    <PackageId>NI2S.Orleans.Reminders.AdoNet</PackageId>
     <Title>Microsoft Orleans ADO.NET Reminders Provider</Title>
     <Description>Microsoft Orleans reminders provider backed by ADO.NET</Description>
     <PackageTags>$(PackageTags) ADO.NET SQL MySQL PostgreSQL Oracle</PackageTags>

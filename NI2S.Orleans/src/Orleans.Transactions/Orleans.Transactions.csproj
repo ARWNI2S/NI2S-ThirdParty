@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <PackageId>Microsoft.Orleans.Transactions</PackageId>
+    <PackageId>NI2S.Orleans.Transactions</PackageId>
     <Title>Microsoft Orleans Transactions support</Title>
     <Description>Core Transaction library of Microsoft Orleans used on the server.</Description>
     <PackageTags>$(PackageTags) Transactions</PackageTags>

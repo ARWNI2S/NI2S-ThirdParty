@@ -13,10 +13,10 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- System packages -->
-    <PackageVersion Include="Microsoft.Orleans.Client" Version="7.0.0" />
-    <PackageVersion Include="Microsoft.Orleans.Runtime" Version="7.0.0" />
-    <PackageVersion Include="Microsoft.Orleans.Sdk" Version="7.0.0" />
-    <PackageVersion Include="Microsoft.Orleans.Server" Version="7.0.0" />
+    <PackageVersion Include="NI2S.Orleans.Client" Version="7.0.0" />
+    <PackageVersion Include="NI2S.Orleans.Runtime" Version="7.0.0" />
+    <PackageVersion Include="NI2S.Orleans.Sdk" Version="7.0.0" />
+    <PackageVersion Include="NI2S.Orleans.Server" Version="7.0.0" />
     <PackageVersion Include="OrleansDashboard" Version="7.0.2" />
     <PackageVersion Include="Spectre.Console" Version="0.46.0" />
     <PackageVersion Include="Spectre.Console.ImageSharp" Version="0.46.0" />

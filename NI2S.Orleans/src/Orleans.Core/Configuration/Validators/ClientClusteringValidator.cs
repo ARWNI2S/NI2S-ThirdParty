@@ -16,13 +16,13 @@ namespace Orleans.Configuration.Validators
         /// </summary>
         internal const string ClusteringNotConfigured =
             "Clustering has not been configured. Configure clustering using one of the clustering packages, such as:"
-            + "\n  * Microsoft.Orleans.Clustering.AzureStorage"
-            + "\n  * Microsoft.Orleans.Clustering.AdoNet for ADO.NET systems such as SQL Server, MySQL, PostgreSQL, and Oracle"
-            + "\n  * Microsoft.Orleans.Clustering.DynamoDB"
-            + "\n  * Microsoft.Orleans.Clustering.ServiceFabric"
-            + "\n  * Microsoft.Orleans.Clustering.Consul"
-            + "\n  * Microsoft.Orleans.Clustering.ZooKeeper"
-            + "\n  * Others, see: https://www.nuget.org/packages?q=Microsoft.Orleans.Clustering.";
+            + "\n  * NI2S.Orleans.Clustering.AzureStorage"
+            + "\n  * NI2S.Orleans.Clustering.AdoNet for ADO.NET systems such as SQL Server, MySQL, PostgreSQL, and Oracle"
+            + "\n  * NI2S.Orleans.Clustering.DynamoDB"
+            + "\n  * NI2S.Orleans.Clustering.ServiceFabric"
+            + "\n  * NI2S.Orleans.Clustering.Consul"
+            + "\n  * NI2S.Orleans.Clustering.ZooKeeper"
+            + "\n  * Others, see: https://www.nuget.org/packages?q=NI2S.Orleans.Clustering.";
 
         /// <summary>
         /// The service provider.

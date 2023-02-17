@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <PackageId>Microsoft.Orleans.Clustering.Redis</PackageId>
+    <PackageId>NI2S.Orleans.Clustering.Redis</PackageId>
     <Title>Microsoft Orleans Clustering Redis Provider</Title>
     <Description>Microsoft Orleans Clustering implementation that uses Redis</Description>
     <PackageTags>$(PackageTags) Redis Clustering</PackageTags>

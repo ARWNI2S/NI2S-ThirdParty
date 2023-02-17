@@ -80,11 +80,11 @@ namespace Orleans.Runtime.ReminderService
             {
                 throw new OrleansConfigurationException(
                     "The reminder service has not been configured. Reminders can be configured using extension methods from the following packages:"
-                    + "\n  * Microsoft.Orleans.Reminders.AzureStorage via ISiloBuilder.UseAzureTableReminderService(...)"
-                    + "\n  * Microsoft.Orleans.Reminders.AdoNet via ISiloBuilder.UseAdoNetReminderService(...)"
-                    + "\n  * Microsoft.Orleans.Reminders.DynamoDB via via ISiloBuilder.UseDynamoDBReminderService(...)"
-                    + "\n  * Microsoft.Orleans.OrleansRuntime via ISiloBuilder.UseInMemoryReminderService(...) (Note: for development purposes only)"
-                    + "\n  * Others, see: https://www.nuget.org/packages?q=Microsoft.Orleans.Reminders.");
+                    + "\n  * NI2S.Orleans.Reminders.AzureStorage via ISiloBuilder.UseAzureTableReminderService(...)"
+                    + "\n  * NI2S.Orleans.Reminders.AdoNet via ISiloBuilder.UseAdoNetReminderService(...)"
+                    + "\n  * NI2S.Orleans.Reminders.DynamoDB via via ISiloBuilder.UseDynamoDBReminderService(...)"
+                    + "\n  * NI2S.Orleans.OrleansRuntime via ISiloBuilder.UseInMemoryReminderService(...) (Note: for development purposes only)"
+                    + "\n  * Others, see: https://www.nuget.org/packages?q=NI2S.Orleans.Reminders.");
             }
 
             serviceProvider = null;

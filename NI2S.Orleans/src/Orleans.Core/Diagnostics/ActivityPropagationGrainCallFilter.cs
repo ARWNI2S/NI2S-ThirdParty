@@ -15,8 +15,8 @@ namespace Orleans.Runtime
 
         internal const string RpcSystem = "orleans";
         internal const string OrleansNamespacePrefix = "Orleans";
-        internal const string ApplicationGrainActivitySourceName = "Microsoft.Orleans.Application";
-        internal const string RuntimeActivitySourceName = "Microsoft.Orleans.Runtime";
+        internal const string ApplicationGrainActivitySourceName = "NI2S.Orleans.Application";
+        internal const string RuntimeActivitySourceName = "NI2S.Orleans.Runtime";
 
         protected static readonly ActivitySource ApplicationGrainSource = new(ApplicationGrainActivitySourceName, "1.0.0");
         protected static readonly ActivitySource RuntimeGrainSource = new(RuntimeActivitySourceName, "1.0.0");

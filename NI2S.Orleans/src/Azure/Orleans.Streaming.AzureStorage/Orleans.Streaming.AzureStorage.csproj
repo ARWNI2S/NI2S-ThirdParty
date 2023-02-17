@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <PackageId>Microsoft.Orleans.Streaming.AzureStorage</PackageId>
+    <PackageId>NI2S.Orleans.Streaming.AzureStorage</PackageId>
     <Title>Microsoft Orleans Azure Queue Storage Streaming Provider</Title>
     <Description>Microsoft Orleans streaming provider backed by Azure Queue Storage</Description>
     <PackageTags>$(PackageTags) Azure Table Blob Storage</PackageTags>
