@@ -27,7 +27,8 @@ namespace Orleans.Providers.GCP.Streams.PubSub
             if (queueId.IsDefault) throw new ArgumentNullException(nameof(queueId));
             if (dataAdapter == null) throw new ArgumentNullException(nameof(dataAdapter));
 
-            var pubSub = new PubSubDataManager(loggerFactory, projectId, topicId, queueId.ToString(), serviceId, deadline, customEndpoint);
+            var pubSub = new PubSubDataManager(loggerFactory, projectId, topicId, queueId.ToString(), serviceId, customEndpoint);
+            //var pubSub = new PubSubDataManager(loggerFactory, projectId, topicId, queueId.ToString(), serviceId, deadline, customEndpoint);
             return new PubSubAdapterReceiver(loggerFactory, queueId, topicId, pubSub, dataAdapter);
         }
 

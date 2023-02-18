@@ -1,11 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Azure.Identity;
-using Azure.Security.KeyVault.Secrets;
 using Microsoft.Extensions.Configuration;
 
 namespace DistributedTests
@@ -47,12 +40,16 @@ namespace DistributedTests
 
         public static SecretConfiguration LoadFromKeyVault()
         {
+            //TODO: UPGRADE AND GET IT TO WORK
             var vaultUri = Environment.GetEnvironmentVariable("KVP_URI") ?? throw new ArgumentException("KVP_URI environment variable not set");
-            var clientId = Environment.GetEnvironmentVariable("KVP_CLIENTID") ?? throw new ArgumentException("KVP_CLIENTID environment variable not set");
-            var clientSecret = Environment.GetEnvironmentVariable("KVP_SECRET") ?? throw new ArgumentException("KVP_SECRET environment variable not set");
-            
+            //var clientId = Environment.GetEnvironmentVariable("KVP_CLIENTID") ?? throw new ArgumentException("KVP_CLIENTID environment variable not set");
+            //var clientSecret = Environment.GetEnvironmentVariable("KVP_SECRET") ?? throw new ArgumentException("KVP_SECRET environment variable not set");
+
+            //var config = new ConfigurationBuilder()
+            //    .AddAzureKeyVault( vaultUri, clientId, clientSecret)
+            //    .Build();
             var config = new ConfigurationBuilder()
-                .AddAzureKeyVault(vaultUri, clientId, clientSecret)
+                .AddAzureKeyVault(new Uri(vaultUri), new DefaultAzureCredential())
                 .Build();
 
             return new SecretConfiguration(config);

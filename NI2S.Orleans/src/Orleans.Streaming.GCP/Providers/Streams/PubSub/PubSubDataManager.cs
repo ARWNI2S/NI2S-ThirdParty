@@ -1,12 +1,13 @@
-using Google.Api.Gax.Grpc;
-using Google.Cloud.PubSub.V1;
-using Grpc.Core;
-using Orleans.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Google.Api.Gax;
+using Google.Cloud.PubSub.V1;
+using Grpc.Core;
 using Microsoft.Extensions.Logging;
+
+//TODO: UPGRADE AND GET IT TO WORK
 namespace Orleans.Providers.GCP.Streams.PubSub
 {
     /// <summary>
@@ -20,17 +21,18 @@ namespace Orleans.Providers.GCP.Streams.PubSub
         public TopicName TopicName { get; private set; }
         public SubscriptionName SubscriptionName { get; private set; }
 
-        private Subscription _subscription;
-        private Topic _topic;
+        //private Subscription _subscription;
+        //private Topic _topic;
         private PublisherClient _publisher;
         private SubscriberClient _subscriber;
-        private TimeSpan? _deadline;
-        private ServiceEndpoint _customEndpoint;
+        //private TimeSpan? _deadline;
+        private readonly string _customEndpoint;
+        //private ServiceEndpoint _customEndpoint;
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2104:DoNotDeclareReadOnlyMutableReferenceTypes")]
         private readonly ILogger _logger;
 
-        public PubSubDataManager(ILoggerFactory loggerFactory, string projectId, string topicId, string subscriptionId, string serviceId, TimeSpan? deadline = null, string customEndpoint = "")
+        public PubSubDataManager(ILoggerFactory loggerFactory, string projectId, string topicId, string subscriptionId, string serviceId, string customEndpoint = "")
+        //public PubSubDataManager(ILoggerFactory loggerFactory, string projectId, string topicId, string subscriptionId, string serviceId, TimeSpan? deadline = null, string customEndpoint = "")
         {
             if (string.IsNullOrWhiteSpace(serviceId)) throw new ArgumentNullException(nameof(serviceId));
             if (string.IsNullOrWhiteSpace(projectId)) throw new ArgumentNullException(nameof(projectId));
@@ -38,7 +40,7 @@ namespace Orleans.Providers.GCP.Streams.PubSub
             if (string.IsNullOrWhiteSpace(subscriptionId)) throw new ArgumentNullException(nameof(subscriptionId));
 
             _logger = loggerFactory.CreateLogger<PubSubDataManager>();
-            _deadline = deadline;
+            //_deadline = deadline;
             topicId = $"{topicId}-{serviceId}";
             subscriptionId = $"{projectId}-{serviceId}";
             TopicName = new TopicName(projectId, topicId);
@@ -47,51 +49,61 @@ namespace Orleans.Providers.GCP.Streams.PubSub
             if (!string.IsNullOrWhiteSpace(customEndpoint))
             {
                 var hostPort = customEndpoint.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
-                if (hostPort.Length != 2) throw new ArgumentException(nameof(customEndpoint));
+                if (hostPort.Length != 2) throw new ArgumentException(null, nameof(customEndpoint));
 
                 var host = hostPort[0];
-                int port;
-                if (!int.TryParse(hostPort[1], out port)) throw new ArgumentException(nameof(customEndpoint));
+                if (!int.TryParse(hostPort[1], out var port)) throw new ArgumentException(null, nameof(customEndpoint));
 
-                _customEndpoint = new ServiceEndpoint(host, port);
+                _customEndpoint = $"{host}:{port}";
+                //_customEndpoint = new ServiceEndpoint(host, port);
             }
         }
+
+        // Factory methods for clients, as a centralized place to apply default settings.
+        private static Task<PublisherClient> CreatePublisherClientAsync(TopicName topicName, string customEndpoint = "") =>
+            new PublisherClientBuilder { TopicName = topicName, EmulatorDetection = EmulatorDetection.EmulatorOrProduction, Endpoint = customEndpoint }.BuildAsync();
+
+        private static Task<SubscriberClient> CreateSubscriberClientAsync(SubscriptionName subscriptionName, string customEndpoint = "") =>
+            new SubscriberClientBuilder { SubscriptionName = subscriptionName, EmulatorDetection = EmulatorDetection.EmulatorOrProduction, Endpoint = customEndpoint }.BuildAsync();
 
         public async Task Initialize()
         {
             try
             {
-                _publisher = await PublisherClient.CreateAsync(_customEndpoint);
+                _publisher = await CreatePublisherClientAsync(TopicName, _customEndpoint);
+                //_publisher = await PublisherClient.CreateAsync(_customEndpoint);
             }
             catch (Exception e)
             {
                 ReportErrorAndRethrow(e, "CreateAsync", GoogleErrorCode.Initializing);
             }
 
-            bool didCreate = false;
+            var didCreate = false;
 
-            try
-            {
-                _topic = await _publisher.CreateTopicAsync(TopicName);
-                didCreate = true;
-            }
-            catch (RpcException e)
-            {
-                if (e.Status.StatusCode != StatusCode.AlreadyExists)
-                    ReportErrorAndRethrow(e, "CreateTopicAsync", GoogleErrorCode.Initializing);
+            //try
+            //{
+            //    _topic = await _publisher.CreateTopicAsync(TopicName);
+            //    didCreate = true;
+            //}
+            //catch (RpcException e)
+            //{
+            //    if (e.Status.StatusCode != StatusCode.AlreadyExists)
+            //        ReportErrorAndRethrow(e, "CreateTopicAsync", GoogleErrorCode.Initializing);
 
-                _topic = await _publisher.GetTopicAsync(TopicName);
-            }
+            //    _topic = await _publisher.GetTopicAsync(TopicName);
+            //}
 
-            _logger.LogInformation((int)GoogleErrorCode.Initializing, "{Verb} Google PubSub Topic {TopicId}", (didCreate ? "Created" : "Attached to"), TopicName.TopicId);
+            _logger.LogInformation((int)GoogleErrorCode.Initializing, "{Verb} Google PubSub Topic {TopicId}", didCreate ? "Created" : "Attached to", TopicName.TopicId);
 
             didCreate = false;
 
             try
             {
-                _subscriber = await SubscriberClient.CreateAsync(_customEndpoint);
-                _subscription = await _subscriber.CreateSubscriptionAsync(SubscriptionName, TopicName, pushConfig: null,
-                    ackDeadlineSeconds: _deadline.HasValue ? (int)_deadline.Value.TotalSeconds : 60);
+                _subscriber = await CreateSubscriberClientAsync(SubscriptionName, _customEndpoint);
+                //_subscriber = await SubscriberClient.CreateAsync(_customEndpoint);
+
+                //_subscription = await _subscriber.CreateSubscriptionAsync(SubscriptionName, TopicName, pushConfig: null,
+                //    ackDeadlineSeconds: _deadline.HasValue ? (int)_deadline.Value.TotalSeconds : 60);
                 didCreate = true;
             }
             catch (RpcException e)
@@ -99,30 +111,30 @@ namespace Orleans.Providers.GCP.Streams.PubSub
                 if (e.Status.StatusCode != StatusCode.AlreadyExists)
                     ReportErrorAndRethrow(e, "CreateSubscriptionAsync", GoogleErrorCode.Initializing);
 
-                _subscription = await _subscriber.GetSubscriptionAsync(SubscriptionName);
+                //_subscription = await _subscriber.GetSubscriptionAsync(SubscriptionName);
             }
 
             _logger.LogInformation(
                 (int)GoogleErrorCode.Initializing,
                 "{Verb} Google PubSub Subscription {SubscriptionId} to Topic {TopicId}",
-                (didCreate ? "Created" : "Attached to"),
+                didCreate ? "Created" : "Attached to",
                 SubscriptionName.SubscriptionId,
                 TopicName.TopicId);
         }
 
-        public async Task DeleteTopic()
-        {
-            if (_logger.IsEnabled(LogLevel.Debug)) _logger.LogDebug("Deleting Google PubSub topic: {TopicId}", TopicName.TopicId);
-            try
-            {
-                await _publisher?.DeleteTopicAsync(TopicName);
-                _logger.LogInformation((int)GoogleErrorCode.Initializing, "Deleted Google PubSub topic {TopicId}", TopicName.TopicId);
-            }
-            catch (Exception exc)
-            {
-                ReportErrorAndRethrow(exc, "DeleteTopic", GoogleErrorCode.DeleteTopic);
-            }
-        }
+        //public async Task DeleteTopic()
+        //{
+        //    if (_logger.IsEnabled(LogLevel.Debug)) _logger.LogDebug("Deleting Google PubSub topic: {TopicId}", TopicName.TopicId);
+        //    try
+        //    {
+        //        await _publisher?.DeleteTopicAsync(TopicName);
+        //        _logger.LogInformation((int)GoogleErrorCode.Initializing, "Deleted Google PubSub topic {TopicId}", TopicName.TopicId);
+        //    }
+        //    catch (Exception exc)
+        //    {
+        //        ReportErrorAndRethrow(exc, "DeleteTopic", GoogleErrorCode.DeleteTopic);
+        //    }
+        //}
 
         public async Task PublishMessages(IEnumerable<PubsubMessage> messages)
         {
