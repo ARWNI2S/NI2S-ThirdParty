@@ -1,5 +1,11 @@
 # NI2S Third Party
 This repository contains certain open source third-party software customizations used by the NI2S runtime and component modules.
+
+[![Build](https://img.shields.io/github/actions/workflow/status/arwni2s/ni2s-thirdparty/build.yml?style=plastic)](https://github.com/arwni2s/ni2s-thirdparty/actions?query=workflow%3Abuild)
+[![GitHub issues](https://img.shields.io/github/issues/arwni2s/ni2s-thirdparty?style=plastic)](https://github.com/ARWNI2S/ni2s-thirdparty/issues)
+![GitHub](https://img.shields.io/github/license/arwni2s/ni2s-thirdparty?style=plastic)
+![GitHub contributors](https://img.shields.io/github/contributors/arwni2s/ni2s-thirdparty?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/arwni2s/ni2s-thirdparty?style=plastic)
 ## Contents
 This repository contains the following projects and folders:
 #### NI2S.Orleans
@@ -122,3 +128,15 @@ Root
 │       ├───RDFSharp.Semantics
 │       └───RDFSharp.Semantics.Test
 ```
+
+![GitHub language count](https://img.shields.io/github/languages/count/arwni2s/ni2s-thirdparty?style=plastic)
+![GitHub top language](https://img.shields.io/github/languages/top/arwni2s/ni2s-thirdparty?style=plastic)
+![GitHub all releases](https://img.shields.io/github/downloads/arwni2s/ni2s-thirdparty/total?style=plastic)
+![GitHub release (including pre-releases)](https://img.shields.io/github/v/release/arwni2s/ni2s-thirdparty?display-name=tag&include_prereleases&style=plastic)
+
+[![Join the chat at https://discord.com/channels/1082861111117889606/1082861257297764413](https://img.shields.io/discord/1082861111117889606?logo=discord&style=social)](https://discord.com/channels/1082861111117889606/1082861257297764413)
+![GitHub Repo stars](https://img.shields.io/github/stars/arwni2s/ni2s-thirdparty?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/arwni2s/ni2s-thirdparty?style=social)
+![GitHub forks](https://img.shields.io/github/forks/arwni2s/ni2s-thirdparty?style=social)
+![GitHub Sponsors](https://img.shields.io/github/sponsors/arwni2s?logo=github&style=social)
+
