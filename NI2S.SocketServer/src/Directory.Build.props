@@ -1,0 +1,14 @@
+<Project>
+  <!-- Setup parent directory build props path -->
+  <PropertyGroup>
+    <_ParentDirectoryBuildPropsPath Condition="'$(_DirectoryBuildPropsFile)' != ''">$([System.IO.Path]::Combine('..', '$(_DirectoryBuildPropsFile)'))</_ParentDirectoryBuildPropsPath>
+  </PropertyGroup>
+
+  <!-- Import parent directory build props (if exists) -->
+  <Import Project="$(_ParentDirectoryBuildPropsPath)" Condition="Exists('$(_ParentDirectoryBuildPropsPath)')"/>
+
+  <PropertyGroup>
+    <IsNI2SThirdPartyReference>true</IsNI2SThirdPartyReference>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,5 @@
+<Project>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="$(ThirdPartyBinariesRoot) != '' AND $(IsNI2SThirdPartyReference) == 'true'">
+    <Exec Command="xcopy &quot;$(TargetDir)$(ProjectName).dll&quot; &quot;$(ThirdPartyBinariesRoot)\$(SolutionName)\&quot; /F /R /Y /I" />
+  </Target>
+</Project>

@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <DebugType>portable</DebugType>
-    <AssemblyName>SocketServer.Primitives</AssemblyName>
-    <PackageId>SocketServer.Primitives</PackageId>
-    <Description>SocketServer primitive interfaces and classes.</Description>
+    <AssemblyName>NI2S.SocketServer.Abstractions</AssemblyName>
+    <PackageId>NI2S.SocketServer.Abstractions</PackageId>
+    <Description>NI2S Network primitive interfaces and classes.</Description>
     <RootNamespace>NI2S.Network</RootNamespace>
   </PropertyGroup>
   <ItemGroup>

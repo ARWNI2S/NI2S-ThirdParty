@@ -1,4 +1,12 @@
 <Project>
+  <!-- Setup parent directory build props path -->
+  <PropertyGroup>
+    <_ParentDirectoryBuildPropsPath Condition="'$(_DirectoryBuildPropsFile)' != ''">$([System.IO.Path]::Combine('..', '$(_DirectoryBuildPropsFile)'))</_ParentDirectoryBuildPropsPath>
+  </PropertyGroup>
+
+  <!-- Import parent directory build props (if exists) -->
+  <Import Project="$(_ParentDirectoryBuildPropsPath)" Condition="Exists('$(_ParentDirectoryBuildPropsPath)')"/>
+
   <Import Project="Dependencies.props" />
   <PropertyGroup>
     <LangVersion>11.0</LangVersion>
