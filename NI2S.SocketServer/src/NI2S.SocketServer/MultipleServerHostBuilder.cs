@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using NI2S.Node.Network.Protocol.Filters;
+using NI2S.Node.Network.Protocol;
 using System;
 using System.Collections.Generic;
 

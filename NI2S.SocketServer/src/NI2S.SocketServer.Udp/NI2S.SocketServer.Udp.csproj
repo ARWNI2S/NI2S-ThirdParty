@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>SuperSocket UDP support library</Description>
+  </PropertyGroup>
+  <ItemGroup>    
+    <ProjectReference Include="..\NI2S.SocketServer.Abstractions\NI2S.SocketServer.Abstractions.csproj" />    
+    <ProjectReference Include="..\NI2S.SocketServer.SessionContainer\NI2S.SocketServer.SessionContainer.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.1.1" />
+  </ItemGroup>
+</Project>

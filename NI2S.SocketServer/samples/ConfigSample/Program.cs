@@ -1,0 +1,29 @@
+﻿using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using NI2S.Node.Network;
+using NI2S.Node.Network.Protocol;
+using NI2S.Node.Network.Protocol.Filters;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConfigSample
+{
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+            var host = SuperSocketHostBuilder.Create<TextPackageInfo, LinePipelineFilter>(args)
+                .UsePackageHandler(async (s, p) =>
+                {
+                    await s.SendAsync(Encoding.UTF8.GetBytes(p.Text + "\r\n"));
+                })
+                .ConfigureLogging((hostCtx, loggingBuilder) =>
+                {
+                    // register your logging library here
+                    loggingBuilder.AddConsole();
+                }).Build();
+
+            await host.RunAsync();
+        }
+    }
+}

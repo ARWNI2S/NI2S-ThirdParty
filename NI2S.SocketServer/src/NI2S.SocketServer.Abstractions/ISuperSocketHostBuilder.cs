@@ -2,7 +2,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NI2S.Node.Network.Protocol;
-using NI2S.Node.Network.Protocol.Filters;
 using System;
 
 namespace NI2S.Node.Network

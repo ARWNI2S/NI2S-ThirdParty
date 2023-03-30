@@ -1,6 +1,6 @@
 using System.Buffers;
 
-namespace NI2S.Node.Network.Protocol.Filters
+namespace NI2S.Node.Network.Protocol
 {
     public interface IPipelineFilter
     {

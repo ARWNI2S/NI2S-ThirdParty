@@ -1,4 +1,4 @@
-﻿using NI2S.Node.Network.Protocol.Filters;
+﻿using NI2S.Node.Network.Protocol;
 using System;
 using System.Buffers;
 using System.Collections.Generic;

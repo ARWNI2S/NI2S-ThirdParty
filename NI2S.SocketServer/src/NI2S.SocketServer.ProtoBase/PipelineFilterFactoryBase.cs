@@ -1,5 +1,4 @@
 using System;
-using NI2S.Node.Network.Protocol.Filters;
 
 namespace NI2S.Node.Network.Protocol
 {

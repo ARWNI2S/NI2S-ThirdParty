@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <DebugType>portable</DebugType>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\NI2S.SocketServer.Client\NI2S.SocketServer.Client.csproj" />
+    <ProjectReference Include="..\..\src\NI2S.SocketServer.Command\NI2S.SocketServer.Command.csproj" />
+    <ProjectReference Include="..\..\src\NI2S.SocketServer.GZip\NI2S.SocketServer.GZip.csproj" />
+    <ProjectReference Include="..\..\src\NI2S.SocketServer.Http\NI2S.SocketServer.Http.csproj" />
+    <ProjectReference Include="..\..\src\NI2S.SocketServer.Udp\NI2S.SocketServer.Udp.csproj" />
+    <ProjectReference Include="..\..\src\NI2S.SocketServer\NI2S.SocketServer.csproj" />
+    <ProjectReference Include="..\NI2S.SocketServer.Tests.Command\NI2S.SocketServer.Tests.Command.csproj" />
+  </ItemGroup>
+  <ItemGroup>  
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />  
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
+    <PackageReference Include="xunit" Version="2.4.2" />    
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="xunit.runner.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\assets\arwniis.pfx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\multiple_server.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.1.1" />
+  </ItemGroup>
+</Project>

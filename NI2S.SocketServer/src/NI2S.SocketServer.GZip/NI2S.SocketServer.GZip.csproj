@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Description>SuperSocket GZip library which allow you to use gzip compress in secure/normal Tcp channel.</Description>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NI2S.SocketServer.Client\NI2S.SocketServer.Client.csproj" />
+    <ProjectReference Include="..\NI2S.SocketServer\NI2S.SocketServer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.1.1" />
+  </ItemGroup>
+
+</Project>

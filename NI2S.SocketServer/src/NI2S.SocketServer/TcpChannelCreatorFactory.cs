@@ -1,7 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NI2S.Node.Network.Channel;
-using NI2S.Node.Network.Protocol.Filters;
+using NI2S.Node.Network.Protocol;
 using System;
 using System.Net.Security;
 using System.Net.Sockets;

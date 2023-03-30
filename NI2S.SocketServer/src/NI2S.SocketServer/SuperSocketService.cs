@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using NI2S.Node.Network.Channel;
-using NI2S.Node.Network.Protocol.Filters;
+using NI2S.Node.Network.Protocol;
 using System;
 using System.Collections.Generic;
 using System.Linq;

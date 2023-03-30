@@ -1,11 +1,11 @@
 version=$1
-nuget delete SuperSocket.Client.Proxy "$version" -source nuget.org -NonInteractive
-nuget delete SuperSocket.Client "$version" -source nuget.org -NonInteractive
-nuget delete SuperSocket.WebSocket.Server "$version" -source nuget.org -NonInteractive
-nuget delete SuperSocket.WebSocket "$version" -source nuget.org -NonInteractive
-nuget delete SuperSocket.Server "$version" -source nuget.org -NonInteractive
-nuget delete SuperSocket.SessionContainer "$version" -source nuget.org -NonInteractive
-nuget delete SuperSocket.Command "$version" -source nuget.org -NonInteractive
-nuget delete SuperSocket.Channel "$version" -source nuget.org -NonInteractive
-nuget delete SuperSocket.Primitives "$version" -source nuget.org -NonInteractive
-nuget delete SuperSocket.ProtoBase "$version" -source nuget.org -NonInteractive
+nuget delete NI2S.SocketServer.Client.Proxy "$version" -source nuget.org -NonInteractive
+nuget delete NI2S.SocketServer.Client "$version" -source nuget.org -NonInteractive
+nuget delete NI2S.SocketServer.WebSocket.Server "$version" -source nuget.org -NonInteractive
+nuget delete NI2S.SocketServer.WebSocket "$version" -source nuget.org -NonInteractive
+nuget delete NI2S.SocketServer.Server "$version" -source nuget.org -NonInteractive
+nuget delete NI2S.SocketServer.SessionContainer "$version" -source nuget.org -NonInteractive
+nuget delete NI2S.SocketServer.Command "$version" -source nuget.org -NonInteractive
+nuget delete NI2S.SocketServer.Channel "$version" -source nuget.org -NonInteractive
+nuget delete NI2S.SocketServer.Primitives "$version" -source nuget.org -NonInteractive
+nuget delete NI2S.SocketServer.Protocol "$version" -source nuget.org -NonInteractive

@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using NI2S.Node.Network.Protocol;
-using NI2S.Node.Network.Protocol.Filters;
 using System;
 using System.Buffers;
 using System.Collections.Generic;
