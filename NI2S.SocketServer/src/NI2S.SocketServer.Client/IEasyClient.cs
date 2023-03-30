@@ -2,7 +2,7 @@ using System;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Protocol;
 
 namespace NI2S.Network.Client
 {

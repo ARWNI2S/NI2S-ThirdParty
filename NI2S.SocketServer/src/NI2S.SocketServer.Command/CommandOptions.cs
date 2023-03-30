@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network.Command
+namespace NI2S.Network.Command
 {
     public class CommandOptions : ICommandSource
     {

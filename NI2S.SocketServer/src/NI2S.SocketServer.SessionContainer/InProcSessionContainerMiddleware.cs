@@ -4,9 +4,10 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
-using NI2S.Node.Network.Channel;
+using NI2S.Network.Channel;
+using NI2S.Network;
 
-namespace NI2S.Node.Network.SessionContainer
+namespace NI2S.Network.SessionContainer
 {
     public class InProcSessionContainerMiddleware : MiddlewareBase, ISessionContainer
     {

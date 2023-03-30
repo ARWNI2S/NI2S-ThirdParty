@@ -1,7 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace NI2S.Node.Network.Server
+namespace NI2S.Network.Server
 {
     public class GenericSessionFactory<TSession> : ISessionFactory
         where TSession : IAppSession

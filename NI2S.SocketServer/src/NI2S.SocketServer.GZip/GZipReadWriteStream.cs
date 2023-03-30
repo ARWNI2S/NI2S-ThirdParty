@@ -7,7 +7,7 @@ using System.Net;
 using System.Threading;
 using System.IO.Compression;
 
-namespace NI2S.Node.Network.GZip
+namespace NI2S.Network.GZip
 {
     public class GZipReadWriteStream : Stream
     {

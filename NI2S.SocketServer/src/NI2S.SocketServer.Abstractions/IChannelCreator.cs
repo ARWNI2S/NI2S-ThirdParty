@@ -1,7 +1,7 @@
-using NI2S.Node.Network.Channel;
+using NI2S.Network.Channel;
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network
+namespace NI2S.Network
 {
     public delegate void NewClientAcceptHandler(IChannelCreator listener, IChannel channel);
 

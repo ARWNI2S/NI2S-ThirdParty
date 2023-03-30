@@ -1,7 +1,7 @@
 using System;
 using System.Buffers;
 
-namespace NI2S.Node.Network.Protocol.Filters
+namespace NI2S.Network.Protocol.Filters
 {
     public class TerminatorPipelineFilter<TPackageInfo> : PipelineFilterBase<TPackageInfo>
         where TPackageInfo : class

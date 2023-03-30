@@ -1,6 +1,6 @@
 using System.Security.Authentication;
 
-namespace NI2S.Node.Network
+namespace NI2S.Network
 {
     public class ListenOptions
     {

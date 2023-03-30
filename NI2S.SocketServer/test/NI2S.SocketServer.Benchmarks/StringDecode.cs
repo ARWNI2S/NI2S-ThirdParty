@@ -3,9 +3,9 @@ using System.Buffers;
 using System.Text;
 using BenchmarkDotNet;
 using BenchmarkDotNet.Attributes;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Protocol;
 
-namespace NI2S.Node.Network.Benchmarks
+namespace NI2S.Network.Benchmarks
 {
     [MemoryDiagnoser]
     public class StringDecode

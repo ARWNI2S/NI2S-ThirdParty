@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network
+namespace NI2S.Network
 {
     public class SyncToAsyncSessionContainerWrapper : IAsyncSessionContainer
     {

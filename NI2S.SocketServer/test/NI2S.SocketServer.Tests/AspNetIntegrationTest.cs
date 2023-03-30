@@ -3,7 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Protocol;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
@@ -11,11 +11,11 @@ using Xunit.Abstractions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using NI2S.Node.Network.Server;
+using NI2S.Network.Server;
 using Microsoft.Extensions.Logging;
-using NI2S.Node.Network.Protocol.Filters;
+using NI2S.Network.Protocol.Filters;
 
-namespace NI2S.Node.Network.Tests
+namespace NI2S.Network.Tests
 {
 
     public class AspNetIntegrationTest : TestClassBase

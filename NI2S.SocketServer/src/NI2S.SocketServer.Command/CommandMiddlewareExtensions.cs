@@ -3,10 +3,10 @@ using System.Linq;
 using System.Collections.Generic;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using NI2S.Node.Network.Command;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Command;
+using NI2S.Network.Protocol;
 
-namespace NI2S.Node.Network
+namespace NI2S.Network
 {
     public static class CommandMiddlewareExtensions
     {

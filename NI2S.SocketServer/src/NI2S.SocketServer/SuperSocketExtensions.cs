@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network
+namespace NI2S.Network
 {
     public static class SuperSocketExtensions
     {

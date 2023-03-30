@@ -1,6 +1,6 @@
 using System;
 
-namespace NI2S.Node.Network.Command
+namespace NI2S.Network.Command
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
     public class CommandAttribute : Attribute

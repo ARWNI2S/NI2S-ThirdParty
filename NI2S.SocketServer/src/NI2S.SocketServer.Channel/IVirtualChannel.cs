@@ -3,7 +3,7 @@ using System.IO.Pipelines;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network.Channel
+namespace NI2S.Network.Channel
 {
     public interface IVirtualChannel : IChannel
     {

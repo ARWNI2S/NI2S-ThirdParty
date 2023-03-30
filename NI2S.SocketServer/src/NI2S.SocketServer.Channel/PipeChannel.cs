@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Protocol;
 using System;
 using System.Buffers;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 
 [assembly: InternalsVisibleTo("Test")]
-namespace NI2S.Node.Network.Channel
+namespace NI2S.Network.Channel
 {
     public abstract partial class PipeChannel<TPackageInfo> : ChannelBase<TPackageInfo>, IChannel<TPackageInfo>, IChannel, IPipeChannel
     {

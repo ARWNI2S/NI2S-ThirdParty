@@ -1,15 +1,15 @@
 using Microsoft.Extensions.DependencyInjection;
 using NI2S.Network.Client;
-using NI2S.Node.Network.Channel;
-using NI2S.Node.Network.GZip;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Channel;
+using NI2S.Network.GZip;
+using NI2S.Network.Protocol;
 using System.IO;
 using System.Net.Security;
 using System.Net.Sockets;
 using System.Security.Authentication;
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network.Tests
+namespace NI2S.Network.Tests
 {
     public class GzipSecureHostConfigurator : TcpHostConfigurator
     {

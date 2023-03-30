@@ -2,7 +2,7 @@ using System;
 using System.Buffers;
 using System.Text;
 
-namespace NI2S.Node.Network.Protocol
+namespace NI2S.Network.Protocol
 {
 
     public static class Extensions

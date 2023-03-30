@@ -1,10 +1,10 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Protocol;
 using System;
 
-namespace NI2S.Node.Network
+namespace NI2S.Network
 {
     public interface ISuperSocketHostBuilder : IHostBuilder, IMinimalApiHostBuilder
     {

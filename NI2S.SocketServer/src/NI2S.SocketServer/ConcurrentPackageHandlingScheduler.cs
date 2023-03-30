@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network.Server
+namespace NI2S.Network.Server
 {
     public class ConcurrentPackageHandlingScheduler<TPackageInfo> : PackageHandlingSchedulerBase<TPackageInfo>
     {

@@ -1,6 +1,6 @@
 using System.Net.Sockets;
 
-namespace NI2S.Node.Network.Channel
+namespace NI2S.Network.Channel
 {
     public static class SocketExtensions
     {

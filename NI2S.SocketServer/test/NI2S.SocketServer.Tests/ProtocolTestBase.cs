@@ -6,12 +6,12 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using NI2S.Node.Network;
-using NI2S.Node.Network.Server;
+using NI2S.Network;
+using NI2S.Network.Server;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace NI2S.Node.Network.Tests
+namespace NI2S.Network.Tests
 {
     public abstract class ProtocolTestBase : TestClassBase
     {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using NI2S.Node.Network.Command;
-using NI2S.Node.Network.Protocol;
-using NI2S.Node.Network.Protocol.Filters;
-using NI2S.Node.Network.Server;
+using NI2S.Network.Command;
+using NI2S.Network.Protocol;
+using NI2S.Network.Protocol.Filters;
+using NI2S.Network.Server;
 using System;
 using System.IO;
 using System.Net.Sockets;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace NI2S.Node.Network.Tests
+namespace NI2S.Network.Tests
 {
     [Trait("Category", "PackageHandlingContextAccessor")]
     public class PackageHandlingContextAccessorTest : TestClassBase

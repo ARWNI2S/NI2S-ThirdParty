@@ -1,10 +1,10 @@
 using System;
 using System.Buffers;
 using System.Buffers.Binary;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Protocol;
 using Xunit;
 
-namespace NI2S.Node.Network.Tests
+namespace NI2S.Network.Tests
 {
     public class SequenceReaderExtensionTest
     {

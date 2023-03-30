@@ -2,10 +2,10 @@ using System;
 using System.Buffers;
 using System.Threading;
 using System.Threading.Tasks;
-using NI2S.Node.Network.Channel;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Channel;
+using NI2S.Network.Protocol;
 
-namespace NI2S.Node.Network.Benchmarks
+namespace NI2S.Network.Benchmarks
 {
     public class TransparentPipeChannel<TPackageInfo> : PipeChannel<TPackageInfo>
     {

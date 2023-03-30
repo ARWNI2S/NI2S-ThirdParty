@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using NI2S.Node.Network.SessionContainer;
+using NI2S.Network.SessionContainer;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace NI2S.Node.Network
+namespace NI2S.Network
 {
     public static class InProcSessionContainerMiddlewareExtensions
     {

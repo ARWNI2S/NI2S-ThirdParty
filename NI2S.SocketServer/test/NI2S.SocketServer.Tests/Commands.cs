@@ -2,14 +2,14 @@ using System;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Text;
-using NI2S.Node.Network;
-using NI2S.Node.Network.Server;
-using NI2S.Node.Network.Command;
-using NI2S.Node.Network.Protocol;
-using NI2S.Node.Network.Tests.Command;
+using NI2S.Network;
+using NI2S.Network.Server;
+using NI2S.Network.Command;
+using NI2S.Network.Protocol;
+using NI2S.Network.Tests.Command;
 
 
-namespace NI2S.Node.Network.Tests
+namespace NI2S.Network.Tests
 {
     public class MySession : AppSession
     {

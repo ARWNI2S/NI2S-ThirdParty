@@ -1,6 +1,6 @@
 using System;
 
-namespace NI2S.Node.Network.Protocol
+namespace NI2S.Network.Protocol
 {
     public abstract class PipelineFilterFactoryBase<TPackageInfo> : IPipelineFilterFactory<TPackageInfo>
     {

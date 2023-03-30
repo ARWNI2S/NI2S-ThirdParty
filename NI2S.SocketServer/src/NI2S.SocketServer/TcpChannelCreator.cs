@@ -1,12 +1,12 @@
 using Microsoft.Extensions.Logging;
-using NI2S.Node.Network.Channel;
+using NI2S.Network.Channel;
 using System;
 using System.Net.Sockets;
 using System.Security.Authentication;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network.Server
+namespace NI2S.Network.Server
 {
     public class TcpChannelCreator : IChannelCreator
     {

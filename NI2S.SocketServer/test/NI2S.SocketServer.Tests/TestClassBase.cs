@@ -8,13 +8,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using NI2S.Node.Network;
-using NI2S.Node.Network.Protocol;
-using NI2S.Node.Network.Server;
+using NI2S.Network;
+using NI2S.Network.Protocol;
+using NI2S.Network.Server;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace NI2S.Node.Network.Tests
+namespace NI2S.Network.Tests
 {
     public abstract class TestClassBase
     {

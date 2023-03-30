@@ -2,7 +2,8 @@
 
 	<PropertyGroup>
 		<Description>SuperSocket GZip library which allow you to use gzip compress in secure/normal Tcp channel.</Description>
-	</PropertyGroup>
+    <RootNamespace>NI2S.Network.GZip</RootNamespace>
+  </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\NI2S.SocketServer.Client\NI2S.SocketServer.Client.csproj" />

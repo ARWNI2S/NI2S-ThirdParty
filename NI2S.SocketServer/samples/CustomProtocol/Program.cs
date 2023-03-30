@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using NI2S.Node.Network;
+using NI2S.Network;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

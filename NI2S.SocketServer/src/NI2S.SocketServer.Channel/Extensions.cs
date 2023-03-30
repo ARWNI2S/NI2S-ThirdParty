@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network.Channel
+namespace NI2S.Network.Channel
 {
     public static class Extensions
     {

@@ -1,8 +1,8 @@
-using NI2S.Node.Network.Channel;
+using NI2S.Network.Channel;
 using System;
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network.Server
+namespace NI2S.Network.Server
 {
     public class SessionHandlers
     {

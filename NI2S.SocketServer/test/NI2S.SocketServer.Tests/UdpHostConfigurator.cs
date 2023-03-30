@@ -1,8 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using NI2S.Network.Client;
-using NI2S.Node.Network.Channel;
-using NI2S.Node.Network.Protocol;
-using NI2S.Node.Network.Protocol.Filters;
+using NI2S.Network.Channel;
+using NI2S.Network.Protocol;
+using NI2S.Network.Protocol.Filters;
 using System;
 using System.Buffers;
 using System.IO;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network.Tests
+namespace NI2S.Network.Tests
 {
     public class UdpHostConfigurator : IHostConfigurator
     {

@@ -1,9 +1,9 @@
 using Microsoft.Extensions.Logging.Abstractions;
-using NI2S.Node.Network.Channel;
-using NI2S.Node.Network.Command;
-using NI2S.Node.Network.Protocol;
-using NI2S.Node.Network.Protocol.Filters;
-using NI2S.Node.Network.Tests.Command;
+using NI2S.Network.Channel;
+using NI2S.Network.Command;
+using NI2S.Network.Protocol;
+using NI2S.Network.Protocol.Filters;
+using NI2S.Network.Tests.Command;
 using System;
 using System.IO;
 using System.Net;
@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace NI2S.Node.Network.Tests
+namespace NI2S.Network.Tests
 {
     [Trait("Category", "Client")]
     public class ClientTest : TestClassBase

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
-using NI2S.Node.Network.Channel;
-using NI2S.Node.Network.Protocol;
-using NI2S.Node.Network.Server;
+using NI2S.Network.Channel;
+using NI2S.Network.Protocol;
+using NI2S.Network.Server;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network.GZip
+namespace NI2S.Network.GZip
 {
     public class GZipTcpChannelCreatorFactory : TcpChannelCreatorFactory, IChannelCreatorFactory
     {

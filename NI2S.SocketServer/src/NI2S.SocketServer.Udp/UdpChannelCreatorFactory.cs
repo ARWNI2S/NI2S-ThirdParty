@@ -4,10 +4,10 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
-using NI2S.Node.Network.Channel;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Channel;
+using NI2S.Network.Protocol;
 
-namespace NI2S.Node.Network.Udp
+namespace NI2S.Network.Udp
 {
     class UdpChannelCreatorFactory : IChannelCreatorFactory
     {

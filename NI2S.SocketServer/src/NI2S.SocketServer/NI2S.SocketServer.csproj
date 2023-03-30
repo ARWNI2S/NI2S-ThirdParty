@@ -1,9 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <DebugType>portable</DebugType>
-    <AssemblyName>NI2S.Node.Network.Server</AssemblyName>
-    <PackageId>NI2S.Node.Network.Server</PackageId>
+    <AssemblyName>NI2S.Network.Server</AssemblyName>
+    <PackageId>NI2S.Network.Server</PackageId>
     <Description>Socket server hosting library.</Description>
+    <RootNamespace>NI2S.Network</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

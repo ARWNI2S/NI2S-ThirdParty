@@ -1,8 +1,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NI2S.Node.Network.Channel;
-using NI2S.Node.Network.Protocol;
-using NI2S.Node.Network.Protocol.Filters;
+using NI2S.Network.Channel;
+using NI2S.Network.Protocol;
+using NI2S.Network.Protocol.Filters;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace NI2S.Node.Network.Tests
+namespace NI2S.Network.Tests
 {
     [Trait("Category", "Basic")]
     public class SessionTest : TestClassBase

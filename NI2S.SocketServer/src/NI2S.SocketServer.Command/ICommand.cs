@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Protocol;
 
-namespace NI2S.Node.Network.Command
+namespace NI2S.Network.Command
 {
     public interface ICommand
     {

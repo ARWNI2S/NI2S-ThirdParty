@@ -5,10 +5,10 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.DependencyInjection;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Protocol;
 using Microsoft.Extensions.Logging;
 
-namespace NI2S.Node.Network.Command
+namespace NI2S.Network.Command
 {
 
     public class CommandMiddleware<TKey, TPackageInfo> : CommandMiddleware<TKey, TPackageInfo, TPackageInfo>

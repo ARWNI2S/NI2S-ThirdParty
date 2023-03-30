@@ -1,7 +1,7 @@
 using System.IO;
 using System.Text;
 
-namespace NI2S.Node.Network.Tests
+namespace NI2S.Network.Tests
 {
     public class ConsoleWriter : StreamWriter
     {

@@ -1,7 +1,7 @@
-﻿using NI2S.Node.Network.Protocol;
+﻿using NI2S.Network.Protocol;
 using System.IO.Pipelines;
 
-namespace NI2S.Node.Network.Channel
+namespace NI2S.Network.Channel
 {
     public interface IPipeChannel
     {

@@ -4,7 +4,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 
 
-namespace NI2S.Node.Network
+namespace NI2S.Network
 {
     public static class HostBuilderExtensions
     {

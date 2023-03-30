@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Hosting;
 using System;
 
-namespace NI2S.Node.Network.Server
+namespace NI2S.Network.Server
 {
     internal interface IConfigureContainerAdapter
     {

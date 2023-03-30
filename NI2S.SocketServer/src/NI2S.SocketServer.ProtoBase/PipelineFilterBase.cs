@@ -1,6 +1,6 @@
 using System.Buffers;
 
-namespace NI2S.Node.Network.Protocol
+namespace NI2S.Network.Protocol
 {
     public abstract class PipelineFilterBase<TPackageInfo> : IPipelineFilter<TPackageInfo>
         where TPackageInfo : class

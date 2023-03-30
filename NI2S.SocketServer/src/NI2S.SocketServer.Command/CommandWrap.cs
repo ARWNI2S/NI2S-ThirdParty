@@ -1,10 +1,10 @@
 using System;
 using System.Threading.Tasks;
 using System.Text.Json;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Protocol;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace NI2S.Node.Network.Command
+namespace NI2S.Network.Command
 {
     interface ICommandWrap
     {

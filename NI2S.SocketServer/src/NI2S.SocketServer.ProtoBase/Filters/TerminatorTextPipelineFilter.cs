@@ -2,7 +2,7 @@ using System;
 using System.Buffers;
 using System.Text;
 
-namespace NI2S.Node.Network.Protocol.Filters
+namespace NI2S.Network.Protocol.Filters
 {
     public class TerminatorTextPipelineFilter : TerminatorPipelineFilter<TextPackageInfo>
     {

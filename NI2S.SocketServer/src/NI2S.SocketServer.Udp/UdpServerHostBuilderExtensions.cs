@@ -2,11 +2,11 @@ using System;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using NI2S.Node.Network.SessionContainer;
-using NI2S.Node.Network.Udp;
+using NI2S.Network.SessionContainer;
+using NI2S.Network.Udp;
 
 
-namespace NI2S.Node.Network
+namespace NI2S.Network
 {
     public static class UdpServerHostBuilderExtensions
     {

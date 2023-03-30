@@ -1,8 +1,8 @@
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Protocol;
 using System.Buffers;
 using System.Text;
 
-namespace NI2S.Node.Network
+namespace NI2S.Network
 {
     public class DefaultStringEncoder : IPackageEncoder<string>
     {

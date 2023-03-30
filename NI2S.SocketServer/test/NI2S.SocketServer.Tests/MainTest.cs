@@ -3,9 +3,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using NI2S.Node.Network.Protocol;
-using NI2S.Node.Network.Protocol.Filters;
-using NI2S.Node.Network.Server;
+using NI2S.Network.Protocol;
+using NI2S.Network.Protocol.Filters;
+using NI2S.Network.Server;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,10 +19,10 @@ using Xunit.Abstractions;
 
 /// <summary>
 /// Run selected test case by command
-/// dotnet test --filter 'FullyQualifiedName=NI2S.Node.Network.Tests.SessionTest.TestCloseReason'
+/// dotnet test --filter 'FullyQualifiedName=NI2S.Network.Tests.SessionTest.TestCloseReason'
 /// </summary>
 
-namespace NI2S.Node.Network.Tests
+namespace NI2S.Network.Tests
 {
     [Trait("Category", "Basic")]
     public class MainTest : TestClassBase

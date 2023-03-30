@@ -1,11 +1,11 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using NI2S.Node.Network.Channel;
+using NI2S.Network.Channel;
 using System;
 using System.Threading;
 
-namespace NI2S.Node.Network.Server
+namespace NI2S.Network.Server
 {
     class ClearIdleSessionMiddleware : MiddlewareBase
     {

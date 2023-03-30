@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.IO.Pipelines;
 
-namespace NI2S.Node.Network.Channel
+namespace NI2S.Network.Channel
 {
     public class ChannelOptions
     {

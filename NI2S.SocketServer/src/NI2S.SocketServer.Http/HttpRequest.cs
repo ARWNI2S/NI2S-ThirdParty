@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Specialized;
 
-namespace NI2S.Node.Network.Http
+namespace NI2S.Network.Http
 {
     public class HttpRequest
     {

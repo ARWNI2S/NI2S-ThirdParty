@@ -1,5 +1,5 @@
-using NI2S.Node.Network.Protocol;
-using NI2S.Node.Network.Protocol.Filters;
+using NI2S.Network.Protocol;
+using NI2S.Network.Protocol.Filters;
 using System;
 using System.Buffers;
 using System.IO;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace NI2S.Node.Network.Tests
+namespace NI2S.Network.Tests
 {
     [Trait("Category", "Protocol.BeginEndMark")]
     public class BeginEndMarkProtocolTest : ProtocolTestBase

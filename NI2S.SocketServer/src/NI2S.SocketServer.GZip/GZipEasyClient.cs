@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Logging;
 using NI2S.Network.Client;
-using NI2S.Node.Network.Channel;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Channel;
+using NI2S.Network.Protocol;
 using System.Security.Authentication;
 
-namespace NI2S.Node.Network.GZip
+namespace NI2S.Network.GZip
 {
     public class GZipEasyClient<TReceivePackage> : EasyClient<TReceivePackage> where TReceivePackage : class
     {

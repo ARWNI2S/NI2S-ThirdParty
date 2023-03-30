@@ -2,7 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 
-namespace NI2S.Node.Network
+namespace NI2S.Network
 {
     public static class SessionContainerExtensions
     {

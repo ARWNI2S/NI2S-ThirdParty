@@ -1,9 +1,9 @@
-﻿using NI2S.Node.Network.Protocol;
+﻿using NI2S.Network.Protocol;
 using System.Net;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 
-namespace NI2S.Node.Network.Channel
+namespace NI2S.Network.Channel
 {
     public class SslStreamPipeChannel<TPackageInfo> : StreamPipeChannel<TPackageInfo>, IChannelWithRemoteCertificate
     {

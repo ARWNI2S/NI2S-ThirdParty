@@ -5,9 +5,9 @@ using System.Threading;
 using System.Net;
 using System.Net.Sockets;
 using Microsoft.Extensions.Logging;
-using NI2S.Node.Network.Channel;
+using NI2S.Network.Channel;
 
-namespace NI2S.Node.Network.Udp
+namespace NI2S.Network.Udp
 {
     class UdpChannelCreator : IChannelCreator
     {

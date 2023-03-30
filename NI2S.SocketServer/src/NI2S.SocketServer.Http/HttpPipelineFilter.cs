@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
 using System.Text;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Protocol;
 
-namespace NI2S.Node.Network.Http
+namespace NI2S.Network.Http
 {
     public class HttpPipelineFilter : IPipelineFilter<HttpRequest>
     {

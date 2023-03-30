@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using NI2S.Node.Network.Channel;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Channel;
+using NI2S.Network.Protocol;
 
-namespace NI2S.Node.Network.Tests
+namespace NI2S.Network.Tests
 {
     public class UdpTextReader : TextReader
     {

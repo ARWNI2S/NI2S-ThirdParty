@@ -1,8 +1,8 @@
-using NI2S.Node.Network.Channel;
+using NI2S.Network.Channel;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NI2S.Node.Network
+namespace NI2S.Network
 {
     public class ServerOptions : ChannelOptions
     {

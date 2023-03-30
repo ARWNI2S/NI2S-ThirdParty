@@ -1,7 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using NI2S.Node.Network.Channel;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Channel;
+using NI2S.Network.Protocol;
 using System;
 using System.Net.Security;
 using System.Net.Sockets;
@@ -9,7 +9,7 @@ using System.Security.Authentication;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network.Server
+namespace NI2S.Network.Server
 {
     public class TcpChannelCreatorFactory : IChannelCreatorFactory
     {

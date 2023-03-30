@@ -1,12 +1,12 @@
 using Microsoft.Extensions.Logging;
-using NI2S.Node.Network.Channel;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Channel;
+using NI2S.Network.Protocol;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network.Server
+namespace NI2S.Network.Server
 {
     public class AppSession : IAppSession, ILogger, ILoggerAccessor
     {

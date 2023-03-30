@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Description>SuperSocket command pattern library which allow you to handle requests with commands.</Description>
+    <RootNamespace>NI2S.Network.Command</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\NI2S.SocketServer.Abstractions\NI2S.SocketServer.Abstractions.csproj" />

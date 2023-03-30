@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Description>SuperSocket shared util classes for HTTP like protocol</Description>
+    <RootNamespace>NI2S.Network.Http</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\NI2S.SocketServer.ProtoBase\NI2S.SocketServer.ProtoBase.csproj" />

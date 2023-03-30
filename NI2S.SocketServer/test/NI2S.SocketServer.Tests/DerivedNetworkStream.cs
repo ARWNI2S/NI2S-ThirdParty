@@ -2,7 +2,7 @@ using System.IO;
 using System.Net.Sockets;
 using System.Text;
 
-namespace NI2S.Node.Network.Tests
+namespace NI2S.Network.Tests
 {
     class DerivedNetworkStream : NetworkStream
     {

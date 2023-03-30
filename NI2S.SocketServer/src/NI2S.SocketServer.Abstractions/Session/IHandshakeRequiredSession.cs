@@ -1,4 +1,4 @@
-namespace NI2S.Node.Network
+namespace NI2S.Network
 {
     public interface IHandshakeRequiredSession
     {

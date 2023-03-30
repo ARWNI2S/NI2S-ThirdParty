@@ -3,7 +3,7 @@ using System.Buffers;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Sources;
 
-namespace NI2S.Node.Network.Channel
+namespace NI2S.Network.Channel
 {
     class DefaultObjectPipe<T> : IObjectPipe<T>, IValueTaskSource<T>, IDisposable
     {

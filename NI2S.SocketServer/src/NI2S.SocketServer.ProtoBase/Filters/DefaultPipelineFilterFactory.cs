@@ -1,6 +1,6 @@
 using System;
 
-namespace NI2S.Node.Network.Protocol.Filters
+namespace NI2S.Network.Protocol.Filters
 {
     public class DefaultPipelineFilterFactory<TPackageInfo, TPipelineFilter> : PipelineFilterFactoryBase<TPackageInfo>
         where TPipelineFilter : IPipelineFilter<TPackageInfo>, new()

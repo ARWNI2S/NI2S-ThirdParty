@@ -1,4 +1,4 @@
-﻿namespace NI2S.Node.Network.Server
+﻿namespace NI2S.Network.Server
 {
 
     public interface IPackageHandlingContextAccessor<TPackageInfo>

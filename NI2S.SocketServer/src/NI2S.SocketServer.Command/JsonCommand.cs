@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using System.Text.Json;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Protocol;
 
-namespace NI2S.Node.Network.Command
+namespace NI2S.Network.Command
 {
     public abstract class JsonCommand<TJsonObject> : JsonCommand<IAppSession, TJsonObject>
     {

@@ -1,9 +1,9 @@
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NI2S.Node.Network;
-using NI2S.Node.Network.Command;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network;
+using NI2S.Network.Command;
+using NI2S.Network.Protocol;
 
 namespace CommandServer
 {

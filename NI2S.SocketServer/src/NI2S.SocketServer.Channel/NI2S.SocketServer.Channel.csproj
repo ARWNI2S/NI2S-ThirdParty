@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Description>SocketServer library to abstract underlying communications as channel with pipeline.</Description>
-    <RootNamespace>NI2S.Node.Network.Channel</RootNamespace>
+    <RootNamespace>NI2S.Network.Channel</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="System.IO.Pipelines" Version="7.0.0" />

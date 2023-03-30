@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NI2S.Node.Network
+namespace NI2S.Network
 {
     public class AsyncToSyncSessionContainerWrapper : ISessionContainer
     {

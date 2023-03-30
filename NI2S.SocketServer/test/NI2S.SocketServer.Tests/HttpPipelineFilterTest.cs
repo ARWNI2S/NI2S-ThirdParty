@@ -1,8 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NI2S.Network.Client;
-using NI2S.Node.Network.Http;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Http;
+using NI2S.Network.Protocol;
 using System;
 using System.Net;
 using System.Net.Security;
@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace NI2S.Node.Network.Tests
+namespace NI2S.Network.Tests
 {
     [Trait("Category", "Http")]
     public class HttpPipelineFilterTest : TestClassBase

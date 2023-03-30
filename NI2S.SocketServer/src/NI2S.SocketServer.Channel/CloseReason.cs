@@ -1,6 +1,6 @@
 using System;
 
-namespace NI2S.Node.Network.Channel
+namespace NI2S.Network.Channel
 {
     public enum CloseReason
     {

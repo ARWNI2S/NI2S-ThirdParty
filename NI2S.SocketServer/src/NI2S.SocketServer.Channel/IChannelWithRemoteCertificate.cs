@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 
-namespace NI2S.Node.Network.Channel
+namespace NI2S.Network.Channel
 {
     public interface IChannelWithRemoteCertificate
     {

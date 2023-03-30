@@ -1,11 +1,11 @@
-﻿using NI2S.Node.Network.Protocol;
+﻿using NI2S.Network.Protocol;
 using System;
 using System.Collections.Generic;
 using System.IO.Pipelines;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network.Channel
+namespace NI2S.Network.Channel
 {
     public interface IChannel
     {

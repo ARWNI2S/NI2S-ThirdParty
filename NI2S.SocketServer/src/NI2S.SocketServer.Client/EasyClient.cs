@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 using System.Security.Authentication;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
-using NI2S.Node.Network.Channel;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Channel;
+using NI2S.Network.Protocol;
 
 
 namespace NI2S.Network.Client

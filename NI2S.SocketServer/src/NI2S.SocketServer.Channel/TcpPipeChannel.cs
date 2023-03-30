@@ -1,4 +1,4 @@
-﻿using NI2S.Node.Network.Protocol;
+﻿using NI2S.Network.Protocol;
 using System;
 using System.Buffers;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network.Channel
+namespace NI2S.Network.Channel
 {
     public class TcpPipeChannel<TPackageInfo> : PipeChannel<TPackageInfo>
     {

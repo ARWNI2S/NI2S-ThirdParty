@@ -1,4 +1,4 @@
-namespace NI2S.Node.Network.Protocol
+namespace NI2S.Network.Protocol
 {
     public class TextPackageInfo
     {

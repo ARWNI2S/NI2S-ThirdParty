@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network
+namespace NI2S.Network
 {
     public delegate ValueTask AsyncEventHandler(object sender, EventArgs e);
 

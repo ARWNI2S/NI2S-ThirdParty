@@ -1,10 +1,10 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Protocol;
 using System;
 using System.Collections.Generic;
 
-namespace NI2S.Node.Network.Server
+namespace NI2S.Network.Server
 {
     public class MultipleServerHostBuilder : HostBuilderAdapter<MultipleServerHostBuilder>
     {

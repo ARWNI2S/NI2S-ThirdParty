@@ -1,10 +1,10 @@
-using NI2S.Node.Network.Channel;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Channel;
+using NI2S.Network.Protocol;
 using System;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network
+namespace NI2S.Network
 {
     public interface IAppSession
     {

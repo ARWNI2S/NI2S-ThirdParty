@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using NI2S.Node.Network;
-using NI2S.Node.Network.Command;
-using NI2S.Node.Network.Protocol;
-using NI2S.Node.Network.Protocol.Filters;
+using NI2S.Network;
+using NI2S.Network.Command;
+using NI2S.Network.Protocol;
+using NI2S.Network.Protocol.Filters;
 
 namespace CommandServer
 {

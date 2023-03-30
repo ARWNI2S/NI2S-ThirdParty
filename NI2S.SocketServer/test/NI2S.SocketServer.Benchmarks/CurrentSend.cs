@@ -4,11 +4,11 @@ using System.Text;
 using System.Threading.Tasks;
 using BenchmarkDotNet;
 using BenchmarkDotNet.Attributes;
-using NI2S.Node.Network.Channel;
-using NI2S.Node.Network.Protocol;
-using NI2S.Node.Network.Protocol.Filters;
+using NI2S.Network.Channel;
+using NI2S.Network.Protocol;
+using NI2S.Network.Protocol.Filters;
 
-namespace NI2S.Node.Network.Benchmarks
+namespace NI2S.Network.Benchmarks
 {
     [ThreadingDiagnoser]
     public class ConcurrentSend

@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Options;
 using System.Text;
 
-namespace NI2S.Node.Network
+namespace NI2S.Network
 {
     class DefaultStringEncoderForDI : DefaultStringEncoder
     {

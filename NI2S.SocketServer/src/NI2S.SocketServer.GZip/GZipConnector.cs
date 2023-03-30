@@ -5,7 +5,7 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network.GZip
+namespace NI2S.Network.GZip
 {
     public class GZipConnector : ConnectorBase
     {

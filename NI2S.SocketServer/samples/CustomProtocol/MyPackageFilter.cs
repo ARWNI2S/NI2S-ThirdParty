@@ -1,5 +1,5 @@
-using NI2S.Node.Network.Protocol;
-using NI2S.Node.Network.Protocol.Filters;
+using NI2S.Network.Protocol;
+using NI2S.Network.Protocol.Filters;
 using System.Buffers;
 using System.Text;
 

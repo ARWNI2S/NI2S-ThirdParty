@@ -1,10 +1,10 @@
-﻿using NI2S.Node.Network.Protocol;
+﻿using NI2S.Network.Protocol;
 using System;
 using System.IO.Pipelines;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NI2S.Node.Network.Channel
+namespace NI2S.Network.Channel
 {
     public abstract class VirtualChannel<TPackageInfo> : PipeChannel<TPackageInfo>, IVirtualChannel
     {

@@ -1,11 +1,11 @@
-using NI2S.Node.Network.Protocol;
-using NI2S.Node.Network.Protocol.Filters;
+using NI2S.Network.Protocol;
+using NI2S.Network.Protocol.Filters;
 using System.Buffers;
 using System.Text;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace NI2S.Node.Network.Tests
+namespace NI2S.Network.Tests
 {
     [Trait("Category", "Protocol.FixedSize")]
     public class FixedSizeProtocolTest : ProtocolTestBase

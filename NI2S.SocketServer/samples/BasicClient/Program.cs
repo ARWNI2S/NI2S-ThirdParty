@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using NI2S.Network.Client;
-using NI2S.Node.Network.Protocol;
+using NI2S.Network.Protocol;
 
 namespace BasicClient
 {
