@@ -128,6 +128,17 @@ Root
 │       ├───RDFSharp.Semantics
 │       └───RDFSharp.Semantics.Test
 ```
+#### SuperSocket
+[SuperSocket](https://github.com/kerryjiang/SuperSocket) is a light weight extensible socket application framework. You can use it to build an always connected socket application easily without thinking about how to use socket, how to maintain the socket connections and how socket works.
+
+[Modifications](https://github.com/ARWNI2S/NI2S-ThirdParty/blob/main/NI2S.SocketServer/README.md) **will be** applied to convert open framework into integrated core engine networking module.
+```
+Root
+├───NI2S.SocketServer
+│   ├───RDFSharp
+│   ├───RDFSharp.Test
+│   └───TestResults
+```
 
 ![GitHub language count](https://img.shields.io/github/languages/count/arwni2s/ni2s-thirdparty?style=plastic)
 ![GitHub top language](https://img.shields.io/github/languages/top/arwni2s/ni2s-thirdparty?style=plastic)

@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9E9C0ACA-6BFD-4513-98F2-22A5A54F403B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NI2S.SocketServer.ProtoBase", "src\NI2S.SocketServer.ProtoBase\NI2S.SocketServer.ProtoBase.csproj", "{BAFC2212-481B-4E70-B8AB-0F6BDD2EEA91}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NI2S.SocketServer.Channel", "src\NI2S.SocketServer.Channel\NI2S.SocketServer.Channel.csproj", "{E197E8BB-9C43-417C-A645-B792BD39A8CB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NI2S.SocketServer.Abstractions", "src\NI2S.SocketServer.Abstractions\NI2S.SocketServer.Abstractions.csproj", "{47EF6A3F-7160-40FC-8268-506DA4924F69}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NI2S.SocketServer", "src\NI2S.SocketServer\NI2S.SocketServer.csproj", "{A4D8E270-624B-4EE6-B21C-A686DAB0C2F8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{2A03B0AE-EBA9-420B-B0D2-B9BA22640FF7}"
+	ProjectSection(SolutionItems) = preProject
+		Dependencies.props = Dependencies.props
+		Directory.Build.props = Directory.Build.props
+		global.json = global.json
+		InternalsVisibleTo.cs = InternalsVisibleTo.cs
+		unlist.sh = unlist.sh
+		version.json = version.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAFC2212-481B-4E70-B8AB-0F6BDD2EEA91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAFC2212-481B-4E70-B8AB-0F6BDD2EEA91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAFC2212-481B-4E70-B8AB-0F6BDD2EEA91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAFC2212-481B-4E70-B8AB-0F6BDD2EEA91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E197E8BB-9C43-417C-A645-B792BD39A8CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E197E8BB-9C43-417C-A645-B792BD39A8CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E197E8BB-9C43-417C-A645-B792BD39A8CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E197E8BB-9C43-417C-A645-B792BD39A8CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47EF6A3F-7160-40FC-8268-506DA4924F69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47EF6A3F-7160-40FC-8268-506DA4924F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47EF6A3F-7160-40FC-8268-506DA4924F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47EF6A3F-7160-40FC-8268-506DA4924F69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4D8E270-624B-4EE6-B21C-A686DAB0C2F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4D8E270-624B-4EE6-B21C-A686DAB0C2F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4D8E270-624B-4EE6-B21C-A686DAB0C2F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4D8E270-624B-4EE6-B21C-A686DAB0C2F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BAFC2212-481B-4E70-B8AB-0F6BDD2EEA91} = {9E9C0ACA-6BFD-4513-98F2-22A5A54F403B}
+		{E197E8BB-9C43-417C-A645-B792BD39A8CB} = {9E9C0ACA-6BFD-4513-98F2-22A5A54F403B}
+		{47EF6A3F-7160-40FC-8268-506DA4924F69} = {9E9C0ACA-6BFD-4513-98F2-22A5A54F403B}
+		{A4D8E270-624B-4EE6-B21C-A686DAB0C2F8} = {9E9C0ACA-6BFD-4513-98F2-22A5A54F403B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6AFDB821-8932-4D14-992D-5D939133FA6A}
+	EndGlobalSection
+EndGlobal

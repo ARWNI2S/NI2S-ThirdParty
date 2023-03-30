@@ -55,10 +55,19 @@
   </PropertyGroup>
 
   <!-- For Debug builds generated a date/time dependent version suffix -->
-  <PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
-    <VersionSuffix Condition=" '$(VersionSuffix)'=='' ">dev</VersionSuffix>
-    <VersionSuffix Condition=" '$(VersionDateSuffix)'!='' ">$(VersionSuffix)-$(VersionDateSuffix)</VersionSuffix>
-  </PropertyGroup>
+  <Choose>
+    <When Condition=" '$(Configuration)'=='Debug' ">
+      <PropertyGroup>
+        <VersionSuffix Condition=" '$(VersionSuffix)'=='' ">ni2s-dev</VersionSuffix>
+        <VersionSuffix Condition=" '$(VersionDateSuffix)'!='' ">$(VersionSuffix)-$(VersionDateSuffix)</VersionSuffix>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <VersionSuffix Condition=" '$(VersionSuffix)'=='' ">ni2s</VersionSuffix>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
 
   <Import Condition=" '$(OrleansBuildTimeCodeGen)' == 'true' " Project="$(MSBuildThisFileDirectory)src/Orleans.CodeGenerator/build/NI2S.Orleans.CodeGenerator.props" />
 

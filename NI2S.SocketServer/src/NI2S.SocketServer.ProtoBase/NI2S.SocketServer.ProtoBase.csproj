@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>NI2S.SocketServer protocol decoding library.</Description>
+    <RootNamespace>NI2S.Node.Network.Protocol</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.1.1" />
+  </ItemGroup>
+</Project>
