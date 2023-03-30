@@ -28,4 +28,10 @@
   <ItemGroup Condition="$(IsPackable) != False AND '$(OutputType)' != 'Exe'">
     <Compile Include="..\..\InternalsVisibleTo.cs" />
   </ItemGroup>
+
+  <!-- Set output folder for created NuGet packages -->
+  <PropertyGroup>
+    <PackageOutputPath Condition=" '$(PackageOutputPath)'=='' AND '$(ThirdPartyPackageRoot)' != ''">$(ThirdPartyPackageRoot)/$(Configuration)/$(SolutionName)</PackageOutputPath>
+  </PropertyGroup>
+
 </Project>

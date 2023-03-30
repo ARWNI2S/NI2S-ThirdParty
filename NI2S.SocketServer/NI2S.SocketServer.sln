@@ -15,9 +15,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NI2S.SocketServer", "src\NI
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{2A03B0AE-EBA9-420B-B0D2-B9BA22640FF7}"
 	ProjectSection(SolutionItems) = preProject
+		Build.cmd = Build.cmd
+		build.ps1 = build.ps1
+		common.ps1 = common.ps1
 		Dependencies.props = Dependencies.props
-		Directory.buid.targets = Directory.buid.targets
 		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
 		global.json = global.json
 		InternalsVisibleTo.cs = InternalsVisibleTo.cs
 		unlist.sh = unlist.sh
@@ -58,13 +61,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NI2S.SocketServer.GZip", "s
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "globals", "globals", "{71BEFCF3-9095-4CEF-9F6F-57F0C7A73C33}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\Directory.Build.props = ..\..\Directory.Build.props
-		..\..\Directory.Build.targets = ..\..\Directory.Build.targets
+		..\Directory.Build.props = ..\Directory.Build.props
+		..\Directory.Build.targets = ..\Directory.Build.targets
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6397DACC-631B-45CD-8F93-77F30F646625}"
 	ProjectSection(SolutionItems) = preProject
 		src\Directory.Build.props = src\Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E7DA0047-5B6E-4534-B119-AC24C39D4E6E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{FA0CFE5A-C205-48FE-AAD5-BDFC02C4181C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{A90B03C6-47EA-495E-AE00-C76730340796}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Directory.Build.props = ..\..\Directory.Build.props
+		..\..\Directory.Build.targets = ..\..\Directory.Build.targets
 	EndProjectSection
 EndProject
 Global
@@ -170,6 +183,9 @@ Global
 		{4DE81C49-35C6-41CF-AB1B-345F929D44E5} = {9E9C0ACA-6BFD-4513-98F2-22A5A54F403B}
 		{71BEFCF3-9095-4CEF-9F6F-57F0C7A73C33} = {2A03B0AE-EBA9-420B-B0D2-B9BA22640FF7}
 		{6397DACC-631B-45CD-8F93-77F30F646625} = {2A03B0AE-EBA9-420B-B0D2-B9BA22640FF7}
+		{E7DA0047-5B6E-4534-B119-AC24C39D4E6E} = {2A03B0AE-EBA9-420B-B0D2-B9BA22640FF7}
+		{FA0CFE5A-C205-48FE-AAD5-BDFC02C4181C} = {2A03B0AE-EBA9-420B-B0D2-B9BA22640FF7}
+		{A90B03C6-47EA-495E-AE00-C76730340796} = {71BEFCF3-9095-4CEF-9F6F-57F0C7A73C33}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6AFDB821-8932-4D14-992D-5D939133FA6A}

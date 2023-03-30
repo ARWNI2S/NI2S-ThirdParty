@@ -348,3 +348,10 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# final results
+[Bb]inaries/
+[Pp]ackages/
+
+test/SuperSocket.Benchmarks/BenchmarkDotNet.Artifacts
+e2e
