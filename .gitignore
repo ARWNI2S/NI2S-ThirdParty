@@ -353,5 +353,12 @@ MigrationBackup/
 [Bb]inaries/
 [Pp]ackages/
 
-test/SuperSocket.Benchmarks/BenchmarkDotNet.Artifacts
-e2e
+/Binaries/NI2S.SocketServer/NI2S.SocketServer.Channel.dll
+/Binaries/NI2S.SocketServer/NI2S.SocketServer.Client.dll
+/Binaries/NI2S.SocketServer/NI2S.SocketServer.Command.dll
+/Binaries/NI2S.SocketServer/NI2S.SocketServer.dll
+/Binaries/NI2S.SocketServer/NI2S.SocketServer.GZip.dll
+/Binaries/NI2S.SocketServer/NI2S.SocketServer.Http.dll
+/Binaries/NI2S.SocketServer/NI2S.SocketServer.ProtoBase.dll
+/Binaries/NI2S.SocketServer/NI2S.SocketServer.SessionContainer.dll
+/Binaries/NI2S.SocketServer/NI2S.SocketServer.Udp.dll
