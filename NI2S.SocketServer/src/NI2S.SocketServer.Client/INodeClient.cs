@@ -6,14 +6,14 @@ using NI2S.Network.Protocol;
 
 namespace NI2S.Network.Client
 {
-    public interface IEasyClient<TReceivePackage, TSendPackage> : IEasyClient<TReceivePackage>
+    public interface INodeClient<TReceivePackage, TSendPackage> : INodeClient<TReceivePackage>
         where TReceivePackage : class
     {
         ValueTask SendAsync(TSendPackage package);      
     }
 
     
-    public interface IEasyClient<TReceivePackage>
+    public interface INodeClient<TReceivePackage>
         where TReceivePackage : class
     {
         ValueTask<bool> ConnectAsync(EndPoint remoteEndPoint, CancellationToken cancellationToken = default);

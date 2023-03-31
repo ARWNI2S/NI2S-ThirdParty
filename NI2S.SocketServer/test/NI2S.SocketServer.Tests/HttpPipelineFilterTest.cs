@@ -24,7 +24,7 @@ namespace NI2S.Network.Tests
 
         }
 
-        class SecureEasyClient<TReceivePackage> : EasyClient<TReceivePackage>
+        class SecureEasyClient<TReceivePackage> : NodeClient<TReceivePackage>
             where TReceivePackage : class
         {
             public SecureEasyClient(IPipelineFilter<TReceivePackage> pipelineFilter, ILogger logger = null)
@@ -74,7 +74,7 @@ namespace NI2S.Network.Tests
                 Assert.True(await server.StartAsync());
                 OutputHelper.WriteLine("Server started.");
 
-                IEasyClient<HttpRequest> client;
+                INodeClient<HttpRequest> client;
 
                 var services = new ServiceCollection();
                 services.AddLogging();
@@ -91,7 +91,7 @@ namespace NI2S.Network.Tests
                 if (hostConfigurator.IsSecure)
                     client = (new SecureEasyClient<HttpRequest>(new HttpPipelineFilter(), logger)).AsClient();
                 else
-                    client = new EasyClient<HttpRequest>(new HttpPipelineFilter(), logger).AsClient();
+                    client = new NodeClient<HttpRequest>(new HttpPipelineFilter(), logger).AsClient();
 
                 var connected = await client.ConnectAsync(new IPEndPoint(IPAddress.Loopback, hostConfigurator.Listener.Port));
 

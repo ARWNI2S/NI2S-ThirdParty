@@ -1,13 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Description>SuperSocket built-in session containers.</Description>
+    <Description>SocketServer built-in session containers.</Description>
     <RootNamespace>NI2S.Network.SessionContainer</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NI2S.SocketServer.Abstractions\NI2S.SocketServer.Abstractions.csproj" />
-    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
+    <ProjectReference Include="$(SourceRoot)\src\NI2S.SocketServer.Abstractions\NI2S.SocketServer.Abstractions.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.1.1" />
+      <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" />
   </ItemGroup>
 </Project>

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace NI2S.Network.Server
 {
-    public class SuperSocketService<TReceivePackageInfo> : IHostedService, IServer, IChannelRegister, ILoggerAccessor, ISessionEventHost
+    public class SocketServerService<TReceivePackageInfo> : IHostedService, IServer, IChannelRegister, ILoggerAccessor, ISessionEventHost
     {
         private readonly IServiceProvider _serviceProvider;
 
@@ -67,7 +67,7 @@ namespace NI2S.Network.Server
 
         private SessionHandlers _sessionHandlers;
 
-        public SuperSocketService(IServiceProvider serviceProvider, IOptions<ServerOptions> serverOptions)
+        public SocketServerService(IServiceProvider serviceProvider, IOptions<ServerOptions> serverOptions)
         {
             if (serviceProvider == null)
                 throw new ArgumentNullException(nameof(serviceProvider));
@@ -80,7 +80,7 @@ namespace NI2S.Network.Server
             _serviceProvider = serviceProvider;
             _pipelineFilterFactory = GetPipelineFilterFactory();
             _loggerFactory = serviceProvider.GetService<ILoggerFactory>();
-            _logger = _loggerFactory.CreateLogger("SuperSocketService");
+            _logger = _loggerFactory.CreateLogger("SocketServerService");
             _channelCreatorFactory = serviceProvider.GetService<IChannelCreatorFactory>() ?? new TcpChannelCreatorFactory(serviceProvider);
             _sessionHandlers = serviceProvider.GetService<SessionHandlers>();
             _sessionFactory = serviceProvider.GetService<ISessionFactory>();

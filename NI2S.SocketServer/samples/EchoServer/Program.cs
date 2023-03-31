@@ -12,12 +12,12 @@ namespace EchoServer
     {
         static async Task Main(string[] args)
         {
-            var host = SuperSocketHostBuilder.Create<TextPackageInfo, LinePipelineFilter>(args)
+            var host = SocketServerHostBuilder.Create<TextPackageInfo, LinePipelineFilter>(args)
                 .UsePackageHandler(async (s, p) =>
                 {
                     await s.SendAsync(Encoding.UTF8.GetBytes(p.Text + "\r\n"));
                 })
-                .ConfigureSuperSocket(options =>
+                .ConfigureSocketServer(options =>
                 {
                     options.Name = "Echo Server";
                     options.AddListener(new ListenOptions

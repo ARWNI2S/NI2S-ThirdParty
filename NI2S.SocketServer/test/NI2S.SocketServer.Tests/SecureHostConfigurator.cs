@@ -18,7 +18,7 @@ namespace NI2S.Network.Tests
             IsSecure = true;
         }
 
-        public override void Configure(ISuperSocketHostBuilder hostBuilder)
+        public override void Configure(ISocketServerHostBuilder hostBuilder)
         {
             hostBuilder.ConfigureServices((ctx, services) =>
             {
@@ -60,9 +60,9 @@ namespace NI2S.Network.Tests
             return SslProtocols.Tls13 | SslProtocols.Tls12 | SslProtocols.Tls11;
         }
 
-        public override IEasyClient<TPackageInfo> ConfigureEasyClient<TPackageInfo>(IPipelineFilter<TPackageInfo> pipelineFilter, ChannelOptions options) where TPackageInfo : class
+        public override INodeClient<TPackageInfo> ConfigureEasyClient<TPackageInfo>(IPipelineFilter<TPackageInfo> pipelineFilter, ChannelOptions options) where TPackageInfo : class
         {
-            var client = new EasyClient<TPackageInfo>(pipelineFilter, options);
+            var client = new NodeClient<TPackageInfo>(pipelineFilter, options);
             client.Security = new SecurityOptions
             {
                 TargetHost = "arwniis",

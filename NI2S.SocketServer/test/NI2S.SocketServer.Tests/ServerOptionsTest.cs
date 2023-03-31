@@ -27,7 +27,7 @@ namespace NI2S.Network.Tests
             var hostConfigurator = CreateObject<IHostConfigurator>(hostConfiguratorType);
 
             using (var server = CreateSocketServerBuilder<TextPackageInfo, LinePipelineFilter>(hostConfigurator)
-                .ConfigureSuperSocket((options) =>
+                .ConfigureSocketServer((options) =>
                 {
                     options.MaxPackageLength = 100;
                 })

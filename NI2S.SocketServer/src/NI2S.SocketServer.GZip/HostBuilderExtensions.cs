@@ -16,7 +16,7 @@ namespace NI2S.Network.GZip
     {
 
         // move to extensions
-        public static ISuperSocketHostBuilder UseGZip(this ISuperSocketHostBuilder hostBuilder)
+        public static ISocketServerHostBuilder UseGZip(this ISocketServerHostBuilder hostBuilder)
         {
             return hostBuilder.UseChannelCreatorFactory<GZipTcpChannelCreatorFactory>();
         }

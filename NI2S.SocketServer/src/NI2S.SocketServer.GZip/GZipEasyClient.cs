@@ -6,7 +6,7 @@ using System.Security.Authentication;
 
 namespace NI2S.Network.GZip
 {
-    public class GZipEasyClient<TReceivePackage> : EasyClient<TReceivePackage> where TReceivePackage : class
+    public class GZipEasyClient<TReceivePackage> : NodeClient<TReceivePackage> where TReceivePackage : class
     {
         public GZipEasyClient(IPipelineFilter<TReceivePackage> pipelineFilter) : base(pipelineFilter)
         {

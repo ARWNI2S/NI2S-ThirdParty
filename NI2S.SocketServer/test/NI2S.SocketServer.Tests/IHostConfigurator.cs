@@ -10,7 +10,7 @@ namespace NI2S.Network.Tests
 {
     public interface IHostConfigurator
     {
-        void Configure(ISuperSocketHostBuilder hostBuilder);
+        void Configure(ISocketServerHostBuilder hostBuilder);
 
         ValueTask KeepSequence();
 
@@ -26,7 +26,7 @@ namespace NI2S.Network.Tests
 
         ListenOptions Listener { get; }
 
-        IEasyClient<TPackageInfo> ConfigureEasyClient<TPackageInfo>(IPipelineFilter<TPackageInfo> pipelineFilter, ChannelOptions options)
+        INodeClient<TPackageInfo> ConfigureEasyClient<TPackageInfo>(IPipelineFilter<TPackageInfo> pipelineFilter, ChannelOptions options)
             where TPackageInfo : class;
     }
 }

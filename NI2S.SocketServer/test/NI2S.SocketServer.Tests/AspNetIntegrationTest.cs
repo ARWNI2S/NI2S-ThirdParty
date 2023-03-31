@@ -90,7 +90,7 @@ namespace NI2S.Network.Tests
                         config.Listen(IPAddress.Any, _defaultPort);
                     });
                 })
-                .AsSuperSocketHostBuilder<TextPackageInfo, LinePipelineFilter>();
+                .AsSocketServerHostBuilder<TextPackageInfo, LinePipelineFilter>();
 
             using (var host = builder.Build())
             { 

@@ -12,7 +12,7 @@ namespace NI2S.Network.Server
         void ConfigureServiceProvider(IServiceProvider hostServiceProvider);
     }
 
-    public class ServerHostBuilderAdapter<TReceivePackage> : SuperSocketHostBuilder<TReceivePackage>, IServerHostBuilderAdapter
+    public class ServerHostBuilderAdapter<TReceivePackage> : SocketServerHostBuilder<TReceivePackage>, IServerHostBuilderAdapter
     {
         private IHostBuilder _hostBuilder;
 
@@ -134,7 +134,7 @@ namespace NI2S.Network.Server
 
         protected override void RegisterDefaultHostedService(IServiceCollection servicesInHost)
         {
-            RegisterHostedService<SuperSocketService<TReceivePackage>>(servicesInHost);
+            RegisterHostedService<SocketServerService<TReceivePackage>>(servicesInHost);
         }
 
         private THostedService GetHostedService<THostedService>()
@@ -142,7 +142,7 @@ namespace NI2S.Network.Server
             return (THostedService)_serviceProvider.GetService<IHostedService>();
         }
 
-        public override ISuperSocketHostBuilder<TReceivePackage> UseHostedService<THostedService>()
+        public override ISocketServerHostBuilder<TReceivePackage> UseHostedService<THostedService>()
         {
             RegisterHostedService<THostedService>();
             return this;
@@ -153,13 +153,13 @@ namespace NI2S.Network.Server
             throw new NotSupportedException();
         }
 
-        public override SuperSocketHostBuilder<TReceivePackage> ConfigureContainer<TContainerBuilder>(Action<HostBuilderContext, TContainerBuilder> configureDelegate)
+        public override SocketServerHostBuilder<TReceivePackage> ConfigureContainer<TContainerBuilder>(Action<HostBuilderContext, TContainerBuilder> configureDelegate)
         {
             _configureContainerActions.Add(new ConfigureContainerAdapter<TContainerBuilder>(configureDelegate));
             return this;
         }
 
-        public override SuperSocketHostBuilder<TReceivePackage> UseServiceProviderFactory<TContainerBuilder>(IServiceProviderFactory<TContainerBuilder> factory)
+        public override SocketServerHostBuilder<TReceivePackage> UseServiceProviderFactory<TContainerBuilder>(IServiceProviderFactory<TContainerBuilder> factory)
         {
             _serviceProviderBuilder = (context, services) =>
             {
@@ -170,7 +170,7 @@ namespace NI2S.Network.Server
             return this;
         }
 
-        public override SuperSocketHostBuilder<TReceivePackage> UseServiceProviderFactory<TContainerBuilder>(Func<HostBuilderContext, IServiceProviderFactory<TContainerBuilder>> factory)
+        public override SocketServerHostBuilder<TReceivePackage> UseServiceProviderFactory<TContainerBuilder>(Func<HostBuilderContext, IServiceProviderFactory<TContainerBuilder>> factory)
         {
             _serviceProviderBuilder = (context, services) =>
             {

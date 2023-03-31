@@ -8,35 +8,35 @@ namespace NI2S.Network
 {
     public static class HostBuilderExtensions
     {
-        public static ISuperSocketHostBuilder AsSuperSocketBuilder(this IHostBuilder hostBuilder)
+        public static ISocketServerHostBuilder AsSocketServerBuilder(this IHostBuilder hostBuilder)
         {
-            return hostBuilder as ISuperSocketHostBuilder;
+            return hostBuilder as ISocketServerHostBuilder;
         }
 
-        public static ISuperSocketHostBuilder UseMiddleware<TMiddleware>(this ISuperSocketHostBuilder builder)
+        public static ISocketServerHostBuilder UseMiddleware<TMiddleware>(this ISocketServerHostBuilder builder)
             where TMiddleware : class, IMiddleware
         {
             return builder.ConfigureServices((ctx, services) =>
             {
                 services.TryAddEnumerable(ServiceDescriptor.Singleton<IMiddleware, TMiddleware>());
-            }).AsSuperSocketBuilder();
+            }).AsSocketServerBuilder();
         }
 
-        public static ISuperSocketHostBuilder UseMiddleware<TMiddleware>(this ISuperSocketHostBuilder builder, Func<IServiceProvider, TMiddleware> implementationFactory)
+        public static ISocketServerHostBuilder UseMiddleware<TMiddleware>(this ISocketServerHostBuilder builder, Func<IServiceProvider, TMiddleware> implementationFactory)
             where TMiddleware : class, IMiddleware
         {
             return builder.ConfigureServices((ctx, services) =>
             {
                 services.TryAddEnumerable(ServiceDescriptor.Singleton<IMiddleware, TMiddleware>(implementationFactory));
-            }).AsSuperSocketBuilder();
+            }).AsSocketServerBuilder();
         }
-        public static ISuperSocketHostBuilder UseChannelCreatorFactory<TChannelCreatorFactory>(this ISuperSocketHostBuilder builder)
+        public static ISocketServerHostBuilder UseChannelCreatorFactory<TChannelCreatorFactory>(this ISocketServerHostBuilder builder)
             where TChannelCreatorFactory : class, IChannelCreatorFactory
         {
             return builder.ConfigureServices((ctx, services) =>
             {
                 services.AddSingleton<IChannelCreatorFactory, TChannelCreatorFactory>();
-            }).AsSuperSocketBuilder();
+            }).AsSocketServerBuilder();
         }
     }
 }

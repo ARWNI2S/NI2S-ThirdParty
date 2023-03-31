@@ -24,7 +24,7 @@ namespace NI2S.Network.Tests
         public async Task TestUsePackageHandlingContextAccessor()
         {
 
-            ISuperSocketHostBuilder<StringPackageInfo> superSocketHostBuilder = CreateSocketServerBuilder<StringPackageInfo, CommandLinePipelineFilter>()
+            ISocketServerHostBuilder<StringPackageInfo> superSocketHostBuilder = CreateSocketServerBuilder<StringPackageInfo, CommandLinePipelineFilter>()
                             .UseCommand(commandOptions =>
                             {
                                 commandOptions.AddCommand<TestCommand>();

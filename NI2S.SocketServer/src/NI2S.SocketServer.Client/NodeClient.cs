@@ -14,24 +14,24 @@ using NI2S.Network.Protocol;
 
 namespace NI2S.Network.Client
 {
-    public class EasyClient<TPackage, TSendPackage> : EasyClient<TPackage>, IEasyClient<TPackage, TSendPackage>
+    public class NodeClient<TPackage, TSendPackage> : NodeClient<TPackage>, INodeClient<TPackage, TSendPackage>
         where TPackage : class
     {
         private IPackageEncoder<TSendPackage> _packageEncoder;
 
-        protected EasyClient(IPackageEncoder<TSendPackage> packageEncoder)
+        protected NodeClient(IPackageEncoder<TSendPackage> packageEncoder)
             : base()
         {
             _packageEncoder = packageEncoder;
         }
         
-        public EasyClient(IPipelineFilter<TPackage> pipelineFilter, IPackageEncoder<TSendPackage> packageEncoder, ILogger logger = null)
+        public NodeClient(IPipelineFilter<TPackage> pipelineFilter, IPackageEncoder<TSendPackage> packageEncoder, ILogger logger = null)
             : this(pipelineFilter, packageEncoder, new ChannelOptions { Logger = logger })
         {
 
         }
 
-        public EasyClient(IPipelineFilter<TPackage> pipelineFilter, IPackageEncoder<TSendPackage> packageEncoder, ChannelOptions options)
+        public NodeClient(IPipelineFilter<TPackage> pipelineFilter, IPackageEncoder<TSendPackage> packageEncoder, ChannelOptions options)
             : base(pipelineFilter, options)
         {
             _packageEncoder = packageEncoder;
@@ -42,13 +42,13 @@ namespace NI2S.Network.Client
             await SendAsync(_packageEncoder, package);
         }
 
-        public new IEasyClient<TPackage, TSendPackage> AsClient()
+        public new INodeClient<TPackage, TSendPackage> AsClient()
         {
             return this;
         }
     }
 
-    public class EasyClient<TReceivePackage> : IEasyClient<TReceivePackage>
+    public class NodeClient<TReceivePackage> : INodeClient<TReceivePackage>
         where TReceivePackage : class
     {
         private IPipelineFilter<TReceivePackage> _pipelineFilter;
@@ -67,24 +67,24 @@ namespace NI2S.Network.Client
 
         public SecurityOptions Security { get; set; }
 
-        protected EasyClient()
+        protected NodeClient()
         {
 
         }
 
-        public EasyClient(IPipelineFilter<TReceivePackage> pipelineFilter)
+        public NodeClient(IPipelineFilter<TReceivePackage> pipelineFilter)
             : this(pipelineFilter, NullLogger.Instance)
         {
             
         }
 
-        public EasyClient(IPipelineFilter<TReceivePackage> pipelineFilter, ILogger logger)
+        public NodeClient(IPipelineFilter<TReceivePackage> pipelineFilter, ILogger logger)
             : this(pipelineFilter, new ChannelOptions { Logger = logger })
         {
 
         }
 
-        public EasyClient(IPipelineFilter<TReceivePackage> pipelineFilter, ChannelOptions options)
+        public NodeClient(IPipelineFilter<TReceivePackage> pipelineFilter, ChannelOptions options)
         {
             if (pipelineFilter == null)
                 throw new ArgumentNullException(nameof(pipelineFilter));
@@ -97,7 +97,7 @@ namespace NI2S.Network.Client
             Logger = options.Logger;
         }
 
-        public virtual IEasyClient<TReceivePackage> AsClient()
+        public virtual INodeClient<TReceivePackage> AsClient()
         {
             return this;
         }
@@ -115,7 +115,7 @@ namespace NI2S.Network.Client
             return new SocketConnector(LocalEndPoint);
         }
 
-        ValueTask<bool> IEasyClient<TReceivePackage>.ConnectAsync(EndPoint remoteEndPoint, CancellationToken cancellationToken)
+        ValueTask<bool> INodeClient<TReceivePackage>.ConnectAsync(EndPoint remoteEndPoint, CancellationToken cancellationToken)
         {
             return ConnectAsync(remoteEndPoint, cancellationToken);
         }
@@ -212,7 +212,7 @@ namespace NI2S.Network.Client
             Channel = channel;
         }
 
-        ValueTask<TReceivePackage> IEasyClient<TReceivePackage>.ReceiveAsync()
+        ValueTask<TReceivePackage> INodeClient<TReceivePackage>.ReceiveAsync()
         {
             return ReceiveAsync();
         }
@@ -232,7 +232,7 @@ namespace NI2S.Network.Client
             return null;
         }
 
-        void IEasyClient<TReceivePackage>.StartReceive()
+        void INodeClient<TReceivePackage>.StartReceive()
         {
             StartReceive();
         }
@@ -298,7 +298,7 @@ namespace NI2S.Network.Client
             Logger?.LogError(message);
         }
 
-        ValueTask IEasyClient<TReceivePackage>.SendAsync(ReadOnlyMemory<byte> data)
+        ValueTask INodeClient<TReceivePackage>.SendAsync(ReadOnlyMemory<byte> data)
         {
             return SendAsync(data);
         }
@@ -308,7 +308,7 @@ namespace NI2S.Network.Client
             await Channel.SendAsync(data);
         }
 
-        ValueTask IEasyClient<TReceivePackage>.SendAsync<TSendPackage>(IPackageEncoder<TSendPackage> packageEncoder, TSendPackage package)
+        ValueTask INodeClient<TReceivePackage>.SendAsync<TSendPackage>(IPackageEncoder<TSendPackage> packageEncoder, TSendPackage package)
         {
             return SendAsync<TSendPackage>(packageEncoder, package);
         }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NI2S.Network
 {
-    public static class SuperSocketExtensions
+    public static class SocketServerExtensions
     {
         public static async ValueTask<bool> ActiveConnect(this IServer server, EndPoint remoteEndpoint)
         {

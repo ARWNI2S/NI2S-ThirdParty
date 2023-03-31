@@ -1,12 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Description>SuperSocket shared util classes for HTTP like protocol</Description>
+    <Description>SocketServer shared util classes for HTTP like protocol</Description>
     <RootNamespace>NI2S.Network.Http</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NI2S.SocketServer.ProtoBase\NI2S.SocketServer.ProtoBase.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.1.1" />
+    <ProjectReference Include="$(SourceRoot)\src\NI2S.SocketServer.ProtoBase\NI2S.SocketServer.ProtoBase.csproj" />
   </ItemGroup>
 </Project>

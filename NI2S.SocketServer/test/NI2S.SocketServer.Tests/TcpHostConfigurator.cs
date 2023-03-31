@@ -17,7 +17,7 @@ namespace NI2S.Network.Tests
 
         public ListenOptions Listener { get; private set; }
 
-        public virtual void Configure(ISuperSocketHostBuilder hostBuilder)
+        public virtual void Configure(ISocketServerHostBuilder hostBuilder)
         {
             hostBuilder.ConfigureServices((ctx, services) =>
             {
@@ -43,7 +43,7 @@ namespace NI2S.Network.Tests
             return new StreamReader(stream, encoding, true);
         }
 
-        public abstract IEasyClient<TPackageInfo> ConfigureEasyClient<TPackageInfo>(IPipelineFilter<TPackageInfo> pipelineFilter, ChannelOptions options)
+        public abstract INodeClient<TPackageInfo> ConfigureEasyClient<TPackageInfo>(IPipelineFilter<TPackageInfo> pipelineFilter, ChannelOptions options)
             where TPackageInfo : class;
 
         public abstract ValueTask<Stream> GetClientStream(Socket socket);

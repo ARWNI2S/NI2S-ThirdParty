@@ -10,13 +10,13 @@ namespace CustomProtocol
     {
         static async Task Main(string[] args)
         {
-            var host = SuperSocketHostBuilder.Create<MyPackage, MyPackageFilter>(args)
+            var host = SocketServerHostBuilder.Create<MyPackage, MyPackageFilter>(args)
                 .UsePackageHandler(async (s, p) =>
                 {
                     // handle package
                     await Task.Delay(0);
                 })
-                .ConfigureSuperSocket(options =>
+                .ConfigureSocketServer(options =>
                 {
                     options.Name = "CustomProtocol Server";
                     options.Listeners = new List<ListenOptions>

@@ -61,7 +61,7 @@ namespace NI2S.Network.Server
             return new MultipleServerHostBuilder(args);
         }
 
-        private ServerHostBuilderAdapter<TReceivePackage> CreateServerHostBuilder<TReceivePackage>(Action<SuperSocketHostBuilder<TReceivePackage>> hostBuilderDelegate)
+        private ServerHostBuilderAdapter<TReceivePackage> CreateServerHostBuilder<TReceivePackage>(Action<SocketServerHostBuilder<TReceivePackage>> hostBuilderDelegate)
             where TReceivePackage : class
         {
             var hostBuilder = new ServerHostBuilderAdapter<TReceivePackage>(this);
@@ -69,7 +69,7 @@ namespace NI2S.Network.Server
             return hostBuilder;
         }
 
-        public MultipleServerHostBuilder AddServer<TReceivePackage>(Action<SuperSocketHostBuilder<TReceivePackage>> hostBuilderDelegate)
+        public MultipleServerHostBuilder AddServer<TReceivePackage>(Action<SocketServerHostBuilder<TReceivePackage>> hostBuilderDelegate)
             where TReceivePackage : class
         {
             var hostBuilder = CreateServerHostBuilder<TReceivePackage>(hostBuilderDelegate);
@@ -77,7 +77,7 @@ namespace NI2S.Network.Server
             return this;
         }
 
-        public MultipleServerHostBuilder AddServer<TReceivePackage, TPipelineFilter>(Action<SuperSocketHostBuilder<TReceivePackage>> hostBuilderDelegate)
+        public MultipleServerHostBuilder AddServer<TReceivePackage, TPipelineFilter>(Action<SocketServerHostBuilder<TReceivePackage>> hostBuilderDelegate)
             where TReceivePackage : class
             where TPipelineFilter : IPipelineFilter<TReceivePackage>, new()
         {
@@ -93,10 +93,10 @@ namespace NI2S.Network.Server
             return this;
         }
 
-        public MultipleServerHostBuilder AddServer<TSuperSocketService, TReceivePackage, TPipelineFilter>(Action<SuperSocketHostBuilder<TReceivePackage>> hostBuilderDelegate)
+        public MultipleServerHostBuilder AddServer<TSocketServerService, TReceivePackage, TPipelineFilter>(Action<SocketServerHostBuilder<TReceivePackage>> hostBuilderDelegate)
             where TReceivePackage : class
             where TPipelineFilter : IPipelineFilter<TReceivePackage>, new()
-            where TSuperSocketService : SuperSocketService<TReceivePackage>
+            where TSocketServerService : SocketServerService<TReceivePackage>
         {
             var hostBuilder = CreateServerHostBuilder<TReceivePackage>(hostBuilderDelegate);
 
@@ -104,7 +104,7 @@ namespace NI2S.Network.Server
 
             hostBuilder
                 .UsePipelineFilter<TPipelineFilter>()
-                .UseHostedService<TSuperSocketService>();
+                .UseHostedService<TSocketServerService>();
             return this;
         }
     }

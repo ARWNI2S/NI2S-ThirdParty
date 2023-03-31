@@ -49,21 +49,21 @@ namespace NI2S.Network.Tests
         }
 
 
-        protected SuperSocketHostBuilder<TPackageInfo> CreateSocketServerBuilder<TPackageInfo>(Func<object, IPipelineFilter<TPackageInfo>> filterFactory, IHostConfigurator configurator = null)
+        protected SocketServerHostBuilder<TPackageInfo> CreateSocketServerBuilder<TPackageInfo>(Func<object, IPipelineFilter<TPackageInfo>> filterFactory, IHostConfigurator configurator = null)
             where TPackageInfo : class
         {
-            var hostBuilder = SuperSocketHostBuilder.Create<TPackageInfo>();
+            var hostBuilder = SocketServerHostBuilder.Create<TPackageInfo>();
             hostBuilder.UsePipelineFilterFactory(filterFactory);
-            return Configure(hostBuilder, configurator) as SuperSocketHostBuilder<TPackageInfo>;
+            return Configure(hostBuilder, configurator) as SocketServerHostBuilder<TPackageInfo>;
         }
 
-        protected SuperSocketHostBuilder<TPackageInfo> CreateSocketServerBuilder<TPackageInfo, TPipelineFilter>(IHostConfigurator configurator = null)
+        protected SocketServerHostBuilder<TPackageInfo> CreateSocketServerBuilder<TPackageInfo, TPipelineFilter>(IHostConfigurator configurator = null)
             where TPackageInfo : class
             where TPipelineFilter : IPipelineFilter<TPackageInfo>, new()
         {
-            var hostBuilder = SuperSocketHostBuilder.Create<TPackageInfo>();
+            var hostBuilder = SocketServerHostBuilder.Create<TPackageInfo>();
             hostBuilder.UsePipelineFilter<TPipelineFilter>();
-            return Configure(hostBuilder, configurator) as SuperSocketHostBuilder<TPackageInfo>;
+            return Configure(hostBuilder, configurator) as SocketServerHostBuilder<TPackageInfo>;
         }
 
         protected T CreateObject<T>(Type type)
@@ -76,7 +76,7 @@ namespace NI2S.Network.Tests
             return hostConfigurator.CreateClient();
         }
 
-        protected ISuperSocketHostBuilder Configure(ISuperSocketHostBuilder hostBuilder, IHostConfigurator configurator = null)
+        protected ISocketServerHostBuilder Configure(ISocketServerHostBuilder hostBuilder, IHostConfigurator configurator = null)
         {
             var builder = hostBuilder.ConfigureAppConfiguration((hostCtx, configApp) =>
                 {
@@ -97,7 +97,7 @@ namespace NI2S.Network.Tests
                 .ConfigureServices((hostCtx, services) =>
                 {
                     ConfigureServices(hostCtx, services);
-                }) as ISuperSocketHostBuilder;
+                }) as ISocketServerHostBuilder;
             
             configurator?.Configure(builder);
             

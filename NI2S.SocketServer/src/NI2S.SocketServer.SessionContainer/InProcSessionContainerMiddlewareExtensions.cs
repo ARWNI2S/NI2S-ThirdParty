@@ -8,7 +8,7 @@ namespace NI2S.Network
 {
     public static class InProcSessionContainerMiddlewareExtensions
     {
-        public static ISuperSocketHostBuilder UseInProcSessionContainer(this ISuperSocketHostBuilder builder)
+        public static ISocketServerHostBuilder UseInProcSessionContainer(this ISocketServerHostBuilder builder)
         {
             return builder
                 .UseMiddleware<InProcSessionContainerMiddleware>(s => s.GetRequiredService<InProcSessionContainerMiddleware>())
@@ -17,7 +17,7 @@ namespace NI2S.Network
                     services.AddSingleton<InProcSessionContainerMiddleware>();
                     services.AddSingleton<ISessionContainer>((s) => s.GetRequiredService<InProcSessionContainerMiddleware>());
                     services.AddSingleton<IAsyncSessionContainer>((s) => s.GetRequiredService<ISessionContainer>().ToAsyncSessionContainer());
-                }) as ISuperSocketHostBuilder;
+                }) as ISocketServerHostBuilder;
         }
     }
 }

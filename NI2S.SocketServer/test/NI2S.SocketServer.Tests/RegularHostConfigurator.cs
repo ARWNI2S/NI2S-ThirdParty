@@ -14,9 +14,9 @@ namespace NI2S.Network.Tests
             WebSocketSchema = "ws";
         }
 
-        public override IEasyClient<TPackageInfo> ConfigureEasyClient<TPackageInfo>(IPipelineFilter<TPackageInfo> pipelineFilter, ChannelOptions options) where TPackageInfo : class
+        public override INodeClient<TPackageInfo> ConfigureEasyClient<TPackageInfo>(IPipelineFilter<TPackageInfo> pipelineFilter, ChannelOptions options) where TPackageInfo : class
         {
-            return new EasyClient<TPackageInfo>(pipelineFilter, options);
+            return new NodeClient<TPackageInfo>(pipelineFilter, options);
         }
 
         public override ValueTask<Stream> GetClientStream(Socket socket)

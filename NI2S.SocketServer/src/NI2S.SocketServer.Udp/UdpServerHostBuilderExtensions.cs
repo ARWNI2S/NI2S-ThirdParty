@@ -10,17 +10,17 @@ namespace NI2S.Network
 {
     public static class UdpServerHostBuilderExtensions
     {
-        public static ISuperSocketHostBuilder<TReceivePackage> UseUdp<TReceivePackage>(this ISuperSocketHostBuilder<TReceivePackage> hostBuilder)
+        public static ISocketServerHostBuilder<TReceivePackage> UseUdp<TReceivePackage>(this ISocketServerHostBuilder<TReceivePackage> hostBuilder)
         {
-            return (hostBuilder as ISuperSocketHostBuilder).UseUdp() as ISuperSocketHostBuilder<TReceivePackage>;
+            return (hostBuilder as ISocketServerHostBuilder).UseUdp() as ISocketServerHostBuilder<TReceivePackage>;
         }
 
-        public static ISuperSocketHostBuilder UseUdp(this ISuperSocketHostBuilder hostBuilder)
+        public static ISocketServerHostBuilder UseUdp(this ISocketServerHostBuilder hostBuilder)
         {
             return (hostBuilder.ConfigureServices((context, services) =>
             {
                 services.AddSingleton<IChannelCreatorFactory, UdpChannelCreatorFactory>();                
-            }) as ISuperSocketHostBuilder)
+            }) as ISocketServerHostBuilder)
             .ConfigureSupplementServices((context, services) =>
             {
                 if (!services.Any(s => s.ServiceType == typeof(IUdpSessionIdentifierProvider)))

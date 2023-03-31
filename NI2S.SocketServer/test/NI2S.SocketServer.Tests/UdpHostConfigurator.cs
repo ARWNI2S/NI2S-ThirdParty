@@ -26,7 +26,7 @@ namespace NI2S.Network.Tests
 
         private static Random _rd = new Random();
 
-        public void Configure(ISuperSocketHostBuilder hostBuilder)
+        public void Configure(ISocketServerHostBuilder hostBuilder)
         {
             hostBuilder
                 .UseUdp()
@@ -41,9 +41,9 @@ namespace NI2S.Network.Tests
                 );
         }
 
-        public IEasyClient<TPackageInfo> ConfigureEasyClient<TPackageInfo>(IPipelineFilter<TPackageInfo> pipelineFilter, ChannelOptions options) where TPackageInfo : class
+        public INodeClient<TPackageInfo> ConfigureEasyClient<TPackageInfo>(IPipelineFilter<TPackageInfo> pipelineFilter, ChannelOptions options) where TPackageInfo : class
         {
-            return new EasyClient<TPackageInfo>(pipelineFilter, options);
+            return new NodeClient<TPackageInfo>(pipelineFilter, options);
         }
 
         public Socket CreateClient()

@@ -14,29 +14,29 @@ namespace NI2S.Network
 {
     public static class HostBuilderExtensions
     {
-        public static ISuperSocketHostBuilder<TReceivePackage> AsSuperSocketHostBuilder<TReceivePackage>(this IHostBuilder hostBuilder)
+        public static ISocketServerHostBuilder<TReceivePackage> AsSocketServerHostBuilder<TReceivePackage>(this IHostBuilder hostBuilder)
         {
-            if (hostBuilder is ISuperSocketHostBuilder<TReceivePackage> ssHostBuilder)
+            if (hostBuilder is ISocketServerHostBuilder<TReceivePackage> ssHostBuilder)
             {
                 return ssHostBuilder;
             }
 
-            return new SuperSocketHostBuilder<TReceivePackage>(hostBuilder);
+            return new SocketServerHostBuilder<TReceivePackage>(hostBuilder);
         }
 
-        public static ISuperSocketHostBuilder<TReceivePackage> AsSuperSocketHostBuilder<TReceivePackage, TPipelineFilter>(this IHostBuilder hostBuilder)
+        public static ISocketServerHostBuilder<TReceivePackage> AsSocketServerHostBuilder<TReceivePackage, TPipelineFilter>(this IHostBuilder hostBuilder)
             where TPipelineFilter : IPipelineFilter<TReceivePackage>, new()
         {
-            if (hostBuilder is ISuperSocketHostBuilder<TReceivePackage> ssHostBuilder)
+            if (hostBuilder is ISocketServerHostBuilder<TReceivePackage> ssHostBuilder)
             {
                 return ssHostBuilder;
             }
 
-            return (new SuperSocketHostBuilder<TReceivePackage>(hostBuilder))
+            return (new SocketServerHostBuilder<TReceivePackage>(hostBuilder))
                 .UsePipelineFilter<TPipelineFilter>();
         }
 
-        public static ISuperSocketHostBuilder<TReceivePackage> UsePipelineFilterFactory<TReceivePackage>(this ISuperSocketHostBuilder<TReceivePackage> hostBuilder, Func<object, IPipelineFilter<TReceivePackage>> filterFactory)
+        public static ISocketServerHostBuilder<TReceivePackage> UsePipelineFilterFactory<TReceivePackage>(this ISocketServerHostBuilder<TReceivePackage> hostBuilder, Func<object, IPipelineFilter<TReceivePackage>> filterFactory)
         {
             hostBuilder.ConfigureServices(
                 (hostCtx, services) =>
@@ -48,12 +48,12 @@ namespace NI2S.Network
             return hostBuilder.UsePipelineFilterFactory<DelegatePipelineFilterFactory<TReceivePackage>>();
         }
 
-        public static ISuperSocketHostBuilder<TReceivePackage> UseClearIdleSession<TReceivePackage>(this ISuperSocketHostBuilder<TReceivePackage> hostBuilder)
+        public static ISocketServerHostBuilder<TReceivePackage> UseClearIdleSession<TReceivePackage>(this ISocketServerHostBuilder<TReceivePackage> hostBuilder)
         {
             return hostBuilder.UseMiddleware<ClearIdleSessionMiddleware>();
         }
 
-        public static ISuperSocketHostBuilder<TReceivePackage> UseSessionHandler<TReceivePackage>(this ISuperSocketHostBuilder<TReceivePackage> hostBuilder, Func<IAppSession, ValueTask> onConnected = null, Func<IAppSession, CloseEventArgs, ValueTask> onClosed = null)
+        public static ISocketServerHostBuilder<TReceivePackage> UseSessionHandler<TReceivePackage>(this ISocketServerHostBuilder<TReceivePackage> hostBuilder, Func<IAppSession, ValueTask> onConnected = null, Func<IAppSession, CloseEventArgs, ValueTask> onClosed = null)
         {
             return hostBuilder.ConfigureServices(
                 (hostCtx, services) =>
@@ -67,7 +67,7 @@ namespace NI2S.Network
             );
         }
 
-        public static ISuperSocketHostBuilder<TReceivePackage> ConfigureSuperSocket<TReceivePackage>(this ISuperSocketHostBuilder<TReceivePackage> hostBuilder, Action<ServerOptions> configurator)
+        public static ISocketServerHostBuilder<TReceivePackage> ConfigureSocketServer<TReceivePackage>(this ISocketServerHostBuilder<TReceivePackage> hostBuilder, Action<ServerOptions> configurator)
         {
             return hostBuilder.ConfigureServices(
                 (hostCtx, services) =>
@@ -77,7 +77,7 @@ namespace NI2S.Network
             );
         }
 
-        public static ISuperSocketHostBuilder<TReceivePackage> ConfigureSocketOptions<TReceivePackage>(this ISuperSocketHostBuilder<TReceivePackage> hostBuilder, Action<Socket> socketOptionsSetter)
+        public static ISocketServerHostBuilder<TReceivePackage> ConfigureSocketOptions<TReceivePackage>(this ISocketServerHostBuilder<TReceivePackage> hostBuilder, Action<Socket> socketOptionsSetter)
             where TReceivePackage : class
         {
             return hostBuilder.ConfigureServices(
@@ -99,7 +99,7 @@ namespace NI2S.Network
             return host.Services.GetService<IEnumerable<IHostedService>>().OfType<IServer>().FirstOrDefault();
         }
 
-        public static ISuperSocketHostBuilder<TReceivePackage> ConfigureErrorHandler<TReceivePackage>(this ISuperSocketHostBuilder<TReceivePackage> hostBuilder, Func<IAppSession, PackageHandlingException<TReceivePackage>, ValueTask<bool>> errorHandler)
+        public static ISocketServerHostBuilder<TReceivePackage> ConfigureErrorHandler<TReceivePackage>(this ISocketServerHostBuilder<TReceivePackage> hostBuilder, Func<IAppSession, PackageHandlingException<TReceivePackage>, ValueTask<bool>> errorHandler)
         {
             return hostBuilder.ConfigureServices(
                 (hostCtx, services) =>
@@ -110,7 +110,7 @@ namespace NI2S.Network
         }
 
         // move to extensions
-        public static ISuperSocketHostBuilder<TReceivePackage> UsePackageHandler<TReceivePackage>(this ISuperSocketHostBuilder<TReceivePackage> hostBuilder, Func<IAppSession, TReceivePackage, ValueTask> packageHandler, Func<IAppSession, PackageHandlingException<TReceivePackage>, ValueTask<bool>> errorHandler = null)
+        public static ISocketServerHostBuilder<TReceivePackage> UsePackageHandler<TReceivePackage>(this ISocketServerHostBuilder<TReceivePackage> hostBuilder, Func<IAppSession, TReceivePackage, ValueTask> packageHandler, Func<IAppSession, PackageHandlingException<TReceivePackage>, ValueTask<bool>> errorHandler = null)
         {
             return hostBuilder.ConfigureServices(
                 (hostCtx, services) =>
@@ -129,7 +129,7 @@ namespace NI2S.Network
             return new MultipleServerHostBuilder(hostBuilder);
         }
 
-        public static IMinimalApiHostBuilder AsMinimalApiHostBuilder(this ISuperSocketHostBuilder hostBuilder)
+        public static IMinimalApiHostBuilder AsMinimalApiHostBuilder(this ISocketServerHostBuilder hostBuilder)
         {
             return hostBuilder;
         }
