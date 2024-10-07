@@ -1,0 +1,8 @@
+Key,Value
+Title,COGS Burger Example Model
+ShortTitle,COGS Burger
+Slug,cogsburger
+Description,A model for describing all sorts of burgers.
+NamespaceUrl,http://example.org/cogsburger
+CSharpNamespace,CogsBurger.Model
+NamespacePrefix,cogsburger

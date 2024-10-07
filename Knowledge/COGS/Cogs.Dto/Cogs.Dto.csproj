@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>Cogs.Dto</AssemblyName>
+    <RootNamespace>Cogs.Dto</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="DcTerms.csv" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="DcTerms.csv" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Cogs.licenseheader" Link="Cogs.licenseheader" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="30.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cogs.Common\Cogs.Common.csproj" />
+  </ItemGroup>
+
+</Project>
