@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace OWSData.Models.StoredProcs
+﻿namespace OWSData.Models.StoredProcs
 {
     public class GetAbilityBarsAndAbilities
     {

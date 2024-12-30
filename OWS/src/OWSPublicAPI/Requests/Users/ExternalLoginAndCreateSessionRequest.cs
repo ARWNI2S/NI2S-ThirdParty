@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Threading.Tasks;
 using OWSData.Repositories.Interfaces;
 using OWSShared.Interfaces;
 using OWSData.Models.StoredProcs;
@@ -74,7 +72,7 @@ namespace OWSPublicAPI.Requests.Users
             _output.Authenticated = false;
             _output.UserSessionGuid = Guid.Empty;
             //output.ErrorMessage = externalLoginProvider.GetErrorFromToken(token);
-            return new OkObjectResult(_output);
+            return await Task.FromResult(new OkObjectResult(_output));
             
         }
     }

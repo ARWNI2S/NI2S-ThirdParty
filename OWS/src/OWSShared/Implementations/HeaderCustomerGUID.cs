@@ -1,5 +1,4 @@
-﻿using System;
-using OWSShared.Interfaces;
+﻿using OWSShared.Interfaces;
 
 namespace OWSShared.Implementations
 {

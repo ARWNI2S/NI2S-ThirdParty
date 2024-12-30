@@ -1,5 +1,4 @@
 ﻿using OWSData.Models.StoredProcs;
-using System.Collections.Generic;
 
 namespace OWSData.Models.Composites
 {

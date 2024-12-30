@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.Logging;
 using OWSPublicAPI;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace OWSBenchmarks
 {

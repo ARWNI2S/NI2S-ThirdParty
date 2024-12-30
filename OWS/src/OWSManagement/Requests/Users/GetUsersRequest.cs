@@ -1,8 +1,5 @@
 ﻿using OWSData.Models.Tables;
 using OWSData.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace OWSManagement.Requests.Users
 {

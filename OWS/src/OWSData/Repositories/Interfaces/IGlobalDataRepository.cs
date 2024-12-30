@@ -1,6 +1,4 @@
 ﻿using OWSData.Models.Tables;
-using System;
-using System.Threading.Tasks;
 
 namespace OWSData.Repositories.Interfaces
 {

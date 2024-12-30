@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace OWSData.Models.StoredProcs
+﻿namespace OWSData.Models.StoredProcs
 {
     public class GetZoneInstancesForZone
     {

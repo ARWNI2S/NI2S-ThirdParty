@@ -4,8 +4,6 @@ using OWSData.Repositories.Interfaces;
 using OWSShared.Interfaces;
 using OWSShared.Messages;
 using RabbitMQ.Client;
-using System;
-using System.Threading.Tasks;
 
 namespace OWSInstanceManagement.Requests.Instance
 {
@@ -47,11 +45,11 @@ namespace OWSInstanceManagement.Requests.Instance
             {
                 var factory = new ConnectionFactory() { HostName = "localhost" };
 
-                using (var connection = factory.CreateConnection())
+                using (var connection = await factory.CreateConnectionAsync())
                 {
-                    using (var channel = connection.CreateModel())
+                    using (var channel = await connection.CreateChannelAsync())
                     {
-                        channel.ExchangeDeclare(exchange: "ServerSpinUp",
+                        await channel.ExchangeDeclareAsync(exchange: "ServerSpinUp",
                             type: "direct",
                             durable: false,
                             autoDelete: false);
@@ -65,9 +63,8 @@ namespace OWSInstanceManagement.Requests.Instance
 
                         var body = serverSpinUpMessage.Serialize();
 
-                        channel.BasicPublish(exchange: "ServerSpinUp",
+                        await channel.BasicPublishAsync(exchange: "ServerSpinUp",
                                              routingKey: String.Format("ServerSpinUp.{0}" + joinMapByCharacterName.WorldServerID),
-                                             basicProperties: null,
                                              body: body);
                     }
                 }

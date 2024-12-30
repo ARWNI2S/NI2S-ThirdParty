@@ -1,5 +1,4 @@
 ﻿using OWSData.Models.Tables;
-using System.Collections.Generic;
 
 namespace OWSData.Models.Composites
 {

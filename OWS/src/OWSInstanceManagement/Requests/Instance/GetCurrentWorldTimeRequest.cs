@@ -2,8 +2,6 @@
 using OWSData.Models.StoredProcs;
 using OWSData.Repositories.Interfaces;
 using OWSShared.Interfaces;
-using System;
-using System.Threading.Tasks;
 
 namespace OWSInstanceManagement.Requests.Instance
 {

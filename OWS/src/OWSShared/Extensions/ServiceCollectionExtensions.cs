@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using OWSShared.Implementations;
 using OWSShared.Interfaces;
-using System.Linq;
 using Serilog;
 
 namespace OWSShared.Extensions

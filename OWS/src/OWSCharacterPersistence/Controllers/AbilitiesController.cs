@@ -6,9 +6,6 @@ using OWSData.Models.StoredProcs;
 using OWSData.Models.Tables;
 using OWSData.Repositories.Interfaces;
 using OWSShared.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace OWSCharacterPersistence.Controllers
 {
@@ -17,6 +14,7 @@ namespace OWSCharacterPersistence.Controllers
     /// </summary>
     /// <remarks>
     /// Contains ability related API calls that are only accessible internally.
+    /// </remarks>
     [Route("api/[controller]")]
     [ApiController]
     public class AbilitiesController : Controller

@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Threading.Tasks;
 using OWSData.Models.StoredProcs;
 using OWSData.Repositories.Interfaces;
 using OWSShared.Interfaces;

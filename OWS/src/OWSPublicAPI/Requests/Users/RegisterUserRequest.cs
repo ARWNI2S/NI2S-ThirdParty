@@ -2,8 +2,6 @@
 using OWSData.Repositories.Interfaces;
 using OWSShared.Interfaces;
 using OWSExternalLoginProviders.Interfaces;
-using System;
-using System.Threading.Tasks;
 using OWSData.Models.StoredProcs;
 using OWSPublicAPI.DTOs;
 

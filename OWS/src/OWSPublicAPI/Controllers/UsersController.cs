@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SimpleInjector;
 using OWSData.Repositories.Interfaces;
 using OWSData.Models.Composites;
@@ -9,8 +8,6 @@ using OWSPublicAPI.Requests.Users;
 using OWSExternalLoginProviders.Interfaces;
 using OWSShared.Options;
 using Microsoft.Extensions.Options;
-using System.Net.Http;
-using Microsoft.Extensions.Logging;
 using OWSPublicAPI.DTOs;
 
 namespace OWSPublicAPI.Controllers

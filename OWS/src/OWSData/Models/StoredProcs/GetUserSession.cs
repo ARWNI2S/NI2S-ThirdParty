@@ -1,5 +1,4 @@
-﻿using System;
-using OWSData.Models.Tables;
+﻿using OWSData.Models.Tables;
 
 namespace OWSData.Models.StoredProcs
 {

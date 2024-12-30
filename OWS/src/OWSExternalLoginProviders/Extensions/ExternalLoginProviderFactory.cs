@@ -1,7 +1,5 @@
 ﻿using OWSExternalLoginProviders.Interfaces;
 using SimpleInjector;
-using System;
-using System.Collections.Generic;
 using Serilog;
 
 namespace OWSExternalLoginProviders.Extensions

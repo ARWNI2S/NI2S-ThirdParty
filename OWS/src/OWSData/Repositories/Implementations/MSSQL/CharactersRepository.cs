@@ -1,17 +1,13 @@
 ﻿using Dapper;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
 using Dapper.Transaction;
 using Microsoft.Extensions.Options;
 using OWSData.Models.StoredProcs;
-using OWSData.Repositories.Interfaces;
 using OWSData.Models.Tables;
+using OWSData.Repositories.Interfaces;
 using OWSData.SQL;
 using OWSShared.Options;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace OWSData.Repositories.Implementations.MSSQL
 {
@@ -24,7 +20,9 @@ namespace OWSData.Repositories.Implementations.MSSQL
             _storageOptions = storageOptions;
         }
 
+#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
         private IDbConnection Connection => new SqlConnection(_storageOptions.Value.OWSDBConnectionString);
+#pragma warning restore CS0618 // El tipo o el miembro están obsoletos
 
         public async Task AddCharacterToMapInstanceByCharName(Guid customerGUID, string characterName, int mapInstanceID)
         {

@@ -1,13 +1,11 @@
-﻿using System.Threading.Tasks;
-
-namespace OWSShared.Interfaces
+﻿namespace OWSShared.Interfaces
 {
-    public interface IRequestHandler<request, response> //where request : Request
+    public interface IRequestHandler<TRequest, TResponse> //where request : Request
     {
-        Task<response> Handle();
+        Task<TResponse> Handle();
     }
 
-    public interface IRequestHandler<request> //where request : Request
+    public interface IRequestHandler<TRequest> //where request : Request
     {
         Task Handle();
     }

@@ -1,5 +1,4 @@
 ﻿using OWSShared.Interfaces;
-using System.Threading.Tasks;
 
 namespace OWSShared.Implementations
 {

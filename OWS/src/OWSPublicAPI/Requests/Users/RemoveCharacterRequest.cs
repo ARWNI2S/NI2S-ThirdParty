@@ -2,8 +2,6 @@
 using OWSData.Models.Composites;
 using OWSData.Repositories.Interfaces;
 using OWSShared.Interfaces;
-using System;
-using System.Threading.Tasks;
 
 namespace OWSPublicAPI.Requests.Users
 {
@@ -32,7 +30,6 @@ namespace OWSPublicAPI.Requests.Users
 
         private Guid CustomerGUID;
         private IUsersRepository usersRepository;
-        private IPublicAPIInputValidation publicAPIInputValidation;
 
         /// <summary>
         /// Set Dependencies for CreateCharacterRequest

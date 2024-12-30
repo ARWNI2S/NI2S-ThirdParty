@@ -4,11 +4,8 @@ using OWSData.Models.Composites;
 using OWSData.Models.StoredProcs;
 using OWSData.Repositories.Interfaces;
 using OWSData.SQL;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Threading.Tasks;
 using OWSShared.Options;
 
 namespace OWSData.Repositories.Implementations.MSSQL
@@ -26,7 +23,9 @@ namespace OWSData.Repositories.Implementations.MSSQL
         {
             get
             {
+#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
                 return new SqlConnection(_storageOptions.Value.OWSDBConnectionString);
+#pragma warning restore CS0618 // El tipo o el miembro están obsoletos
             }
         }
 
@@ -49,7 +48,7 @@ namespace OWSData.Repositories.Implementations.MSSQL
 
                 return output;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 output = new GetServerInstanceFromPort();
                 return output;
@@ -76,7 +75,7 @@ namespace OWSData.Repositories.Implementations.MSSQL
 
                 return output;
             }
-            catch (Exception ex) {
+            catch (Exception) {
                 output = new GetServerInstanceFromPort();
                 return output;
             }

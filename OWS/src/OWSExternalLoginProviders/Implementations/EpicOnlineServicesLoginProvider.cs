@@ -4,15 +4,10 @@ using Microsoft.Extensions.Options;
 using OWSExternalLoginProviders.Internal;
 using OWSExternalLoginProviders.Options;
 using OWSExternalLoginProviders.Responses;
-using System;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Threading;
 
 namespace OWSExternalLoginProviders.Implementations
 {

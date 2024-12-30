@@ -1,8 +1,6 @@
 ﻿using OWSData.Models.Composites;
 using OWSData.Repositories.Interfaces;
 using OWSShared.Interfaces;
-using System;
-using System.Threading.Tasks;
 
 namespace OWSCharacterPersistence.Requests.Characters
 {
@@ -10,7 +8,6 @@ namespace OWSCharacterPersistence.Requests.Characters
     {
         public string CharacterName { get; set; }
 
-        private SuccessAndErrorMessage output;
         private Guid customerGUID;
         private ICharactersRepository charactersRepository;
 

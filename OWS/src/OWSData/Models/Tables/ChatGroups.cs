@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace OWSData.Models.Tables
+﻿namespace OWSData.Models.Tables
 {
     public partial class ChatGroups
     {

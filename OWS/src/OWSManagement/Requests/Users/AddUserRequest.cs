@@ -1,8 +1,6 @@
 ﻿using OWSData.Models.Composites;
 using OWSData.Repositories.Interfaces;
 using OWSManagement.DTOs;
-using System;
-using System.Threading.Tasks;
 
 namespace OWSManagement.Requests.Users
 {

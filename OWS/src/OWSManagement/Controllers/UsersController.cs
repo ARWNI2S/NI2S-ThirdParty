@@ -6,9 +6,6 @@ using OWSData.Repositories.Interfaces;
 using OWSManagement.DTOs;
 using OWSManagement.Requests.Users;
 using OWSShared.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace OWSManagement.Controllers
 {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace OWSManagement.DTOs
+﻿namespace OWSManagement.DTOs
 {
     public class EditUserDTO
     {

@@ -1,13 +1,5 @@
-using System;
-using System.IO;
-using System.Linq;
 using System.Net.Http.Headers;
 using System.Text.RegularExpressions;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using OWSData.Repositories.Interfaces;
 using OWSShared.Extensions;
 using OWSShared.Interfaces;
@@ -178,7 +170,7 @@ namespace OWSInstanceLauncher
             container.RegisterInstance(new TimedHostedService<IInstanceLauncherJob>.Settings(
                 interval: TimeSpan.FromSeconds(10),
                 runOnce: true,
-                action: processor => processor.DoWork(),
+                action: processor => processor.DoWorkAsync(),
                 dispose: processor => processor.Dispose()
             ));
 

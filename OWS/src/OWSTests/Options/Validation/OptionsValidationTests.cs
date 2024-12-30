@@ -2,10 +2,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using OWSShared.Extensions;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using Xunit;
 
 namespace OWSTests.Options.Validation

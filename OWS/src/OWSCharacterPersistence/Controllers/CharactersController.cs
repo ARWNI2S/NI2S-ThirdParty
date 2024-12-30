@@ -3,7 +3,6 @@ using OWSData.Models.StoredProcs;
 using OWSData.Repositories.Interfaces;
 using OWSShared.Interfaces;
 using OWSCharacterPersistence.Requests.Characters;
-using System.Threading.Tasks;
 using OWSData.Models.Composites;
 
 namespace OWSCharacterPersistence.Controllers

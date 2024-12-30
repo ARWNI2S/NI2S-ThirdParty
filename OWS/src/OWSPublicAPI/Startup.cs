@@ -1,9 +1,4 @@
-﻿using System;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Mvc;
 using SimpleInjector;
 using OWSData.Repositories.Interfaces;
 using OWSShared.Interfaces;
@@ -12,8 +7,6 @@ using OWSShared.Middleware;
 using OWSExternalLoginProviders.Interfaces;
 using OWSExternalLoginProviders.Extensions;
 using Microsoft.OpenApi.Models;
-using Microsoft.Extensions.Hosting;
-using System.IO;
 using Microsoft.AspNetCore.DataProtection;
 
 
@@ -55,7 +48,8 @@ namespace OWSPublicAPI
             })
             .AddViews()
             .AddApiExplorer()
-            .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            //.SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+            ;
 
             services.AddSimpleInjector(container, options => {
                 options.AddAspNetCore()

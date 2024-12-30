@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace OWSShared.Interfaces
+﻿namespace OWSShared.Interfaces
 {
     public interface IHeaderCustomerGUID
     {

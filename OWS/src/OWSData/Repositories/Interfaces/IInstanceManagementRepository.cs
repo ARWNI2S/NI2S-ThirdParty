@@ -1,8 +1,5 @@
 ﻿using OWSData.Models.Composites;
 using OWSData.Models.StoredProcs;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace OWSData.Repositories.Interfaces
 {

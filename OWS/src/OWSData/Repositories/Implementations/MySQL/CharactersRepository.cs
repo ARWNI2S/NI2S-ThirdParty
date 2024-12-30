@@ -1,10 +1,6 @@
 ﻿using Dapper;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using MySql.Data.MySqlClient;
-using System.Threading.Tasks;
 using Dapper.Transaction;
 using Microsoft.Extensions.Options;
 using OWSData.Models.StoredProcs;
@@ -217,14 +213,11 @@ namespace OWSData.Repositories.Implementations.MySQL
             JoinMapByCharName outputObject = new JoinMapByCharName();
 
             string serverIp = "";
-            int? worldServerId = 0;
             string worldServerIp = "";
             int worldServerPort = 0;
             int port = 0;
             int mapInstanceID = 0;
             string mapNameToStart = "";
-            int? mapInstanceStatus = 0;
-            bool needToStartupMap = false;
             bool enableAutoLoopback = false;
             bool noPortForwarding = false;
 

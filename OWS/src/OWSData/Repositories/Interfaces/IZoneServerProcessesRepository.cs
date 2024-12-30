@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using OWSShared.Options;
+﻿using OWSShared.Options;
 
 namespace OWSData.Repositories.Interfaces
 {

@@ -6,8 +6,6 @@ using OWSShared.Interfaces;
 using OWSShared.Messages;
 using OWSShared.Options;
 using RabbitMQ.Client;
-using System;
-using System.Threading.Tasks;
 
 namespace OWSInstanceManagement.Requests.Instance
 {
@@ -41,11 +39,11 @@ namespace OWSInstanceManagement.Requests.Instance
                 Password = _rabbitMQOptions.Value.RabbitMQPassword
             };
 
-            using (var connection = factory.CreateConnection())
+            using (var connection = await factory.CreateConnectionAsync())
             {
-                using (var channel = connection.CreateModel())
+                using (var channel = await connection.CreateChannelAsync())
                 {
-                    channel.ExchangeDeclare(exchange: "ows.serverspinup",
+                    await channel.ExchangeDeclareAsync(exchange: "ows.serverspinup",
                         type: "direct",
                         durable: false,
                         autoDelete: false);
@@ -61,10 +59,9 @@ namespace OWSInstanceManagement.Requests.Instance
 
                     var body = serverSpinUpMessage.Serialize();
 
-                    channel.BasicPublish(exchange: "ows.serverspinup",
-                                         routingKey: String.Format("ows.serverspinup.{0}", WorldServerID),
-                                         basicProperties: null,
-                                         body: body);
+                    await channel.BasicPublishAsync(exchange: "ows.serverspinup",
+                                            routingKey: string.Format("ows.serverspinup.{0}", WorldServerID),
+                                            body: body);
                 }
             }
 

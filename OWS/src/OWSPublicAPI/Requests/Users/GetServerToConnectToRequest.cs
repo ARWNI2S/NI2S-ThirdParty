@@ -1,13 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Threading.Tasks;
 using OWSData.Models.StoredProcs;
 using OWSData.Repositories.Interfaces;
 using OWSShared.Interfaces;
 using OWSShared.Options;
 using OWSShared.RequestPayloads;
 using Microsoft.Extensions.Options;
-using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 

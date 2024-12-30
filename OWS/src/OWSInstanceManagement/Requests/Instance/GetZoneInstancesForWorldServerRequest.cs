@@ -3,9 +3,6 @@ using OWSData.Models.StoredProcs;
 using OWSData.Repositories.Interfaces;
 using OWSShared.Interfaces;
 using OWSShared.RequestPayloads;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace OWSInstanceManagement.Requests.Instance
 {

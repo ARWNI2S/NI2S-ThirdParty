@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace OWSData.Models.Tables
+﻿namespace OWSData.Models.Tables
 {
     public partial class CharAbilityBars
     {

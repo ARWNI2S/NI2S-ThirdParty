@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-
-namespace OWSShared.Extensions
+﻿namespace OWSShared.Extensions
 {
-	public static class OperatingSystemExtension
+    public static class OperatingSystemExtension
 	{
         /// <summary>
         /// Cross Platform PathCombine

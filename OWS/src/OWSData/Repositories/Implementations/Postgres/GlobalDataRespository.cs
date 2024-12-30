@@ -1,8 +1,6 @@
 ﻿using Dapper;
-using System;
 using System.Data;
 using Npgsql;
-using System.Threading.Tasks;
 using Dapper.Transaction;
 using Microsoft.Extensions.Options;
 using OWSData.Repositories.Interfaces;

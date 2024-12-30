@@ -2,7 +2,6 @@
 using OWSData.Repositories.Interfaces;
 using OWSPublicAPI.DTOs;
 using OWSShared.Interfaces;
-using System.Threading.Tasks;
 
 namespace OWSPublicAPI.Requests.Users
 {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace OWSShared.RequestPayloads
+﻿namespace OWSShared.RequestPayloads
 {
     public class AddOrUpdateZoneRequestPayload
     {

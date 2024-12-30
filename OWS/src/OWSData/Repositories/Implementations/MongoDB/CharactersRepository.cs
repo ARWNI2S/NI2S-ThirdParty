@@ -1,11 +1,9 @@
-﻿using MongoDB.Driver;
-using MongoDB.Bson;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using OWSData.Models.StoredProcs;
-using System;
 using OWSData.Repositories.Implementations.MongoDB.Models;
-using Microsoft.Extensions.Configuration;
-using System.Threading.Tasks;
 using OWSShared.Options;
 
 namespace OWSData.Repositories.Implementations.MongoDB
@@ -17,7 +15,9 @@ namespace OWSData.Repositories.Implementations.MongoDB
 
         public CharactersRepository(IConfiguration config)
         {
-            MongoDefaults.GuidRepresentation = GuidRepresentation.Standard;
+//#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
+//            MongoDefaults.GuidRepresentation = GuidRepresentation.Standard;
+//#pragma warning restore CS0618 // El tipo o el miembro están obsoletos
             var client = new MongoClient(config.GetConnectionString("WorldBuilderDb"));
             var database = client.GetDatabase("OWSCharacterData");
             characterStats = database.GetCollection<CharacterStats>("CharacterStats");
@@ -34,14 +34,14 @@ namespace OWSData.Repositories.Implementations.MongoDB
         {
             GetCharByCharName OutputCharacter = new GetCharByCharName();
 
-            return OutputCharacter;
+            return await Task.FromResult(OutputCharacter);
         }
 
         public async Task<JoinMapByCharName> JoinMapByCharName(Guid _CustomerGUID, string _CharacterName, string _ZoneName, int _PlayerGroupType)
         {
             JoinMapByCharName OutputObject = new JoinMapByCharName();
 
-            return OutputObject;
+            return await Task.FromResult(OutputObject);
         }
 
         public async Task<CharacterStats> GetCharacterStats(Guid _CustomerGUID, string _CharacterName)

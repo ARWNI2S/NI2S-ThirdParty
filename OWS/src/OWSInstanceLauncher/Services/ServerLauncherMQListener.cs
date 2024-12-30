@@ -6,11 +6,8 @@ using OWSShared.Options;
 using OWSShared.RequestPayloads;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using System;
-using System.Net.Http;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using Serilog;
 
 namespace OWSInstanceLauncher.Services
@@ -18,8 +15,8 @@ namespace OWSInstanceLauncher.Services
     public class ServerLauncherMQListener : IInstanceLauncherJob //BackgroundService
     {
         private IConnection connection;
-        private IModel serverSpinUpChannel;
-        private IModel serverShutDownChannel;
+        private IChannel serverSpinUpChannel;
+        private IChannel serverShutDownChannel;
         private Guid serverSpinUpQueueNameGUID;
         private Guid serverShutDownQueueNameGUID;
 
@@ -66,7 +63,9 @@ namespace OWSInstanceLauncher.Services
 
             _worldServerId = GetWorldServerID();
 
-            InitRabbitMQ();
+            var init = InitRabbitMQAsync();
+            init.ConfigureAwait(false).GetAwaiter().GetResult();
+
         }
 
         public void RegisterLauncher()
@@ -104,7 +103,7 @@ namespace OWSInstanceLauncher.Services
             return worldServerID;
         }
 
-        private void InitRabbitMQ()
+        private async Task InitRabbitMQAsync()
         {
             Log.Information("Attempting to Register OWS Instance Launcher with RabbitMQ ServerSpinUp Queue...");
 
@@ -114,13 +113,12 @@ namespace OWSInstanceLauncher.Services
                 Port = _rabbitMQOptions.Value.RabbitMQPort,
                 UserName = _rabbitMQOptions.Value.RabbitMQUserName,
                 Password = _rabbitMQOptions.Value.RabbitMQPassword,
-                DispatchConsumersAsync = true
             };
 
             // create connection  
             try
             {
-                connection = factory.CreateConnection();
+                connection = await factory.CreateConnectionAsync();
             }
             catch (Exception ex)
             {
@@ -129,50 +127,50 @@ namespace OWSInstanceLauncher.Services
             }
 
             // create channel for server spin up  
-            serverSpinUpChannel = connection.CreateModel();
+            serverSpinUpChannel = await connection.CreateChannelAsync();
 
             serverSpinUpQueueNameGUID = Guid.NewGuid();
 
-            serverSpinUpChannel.ExchangeDeclare(exchange: "ows.serverspinup",
+            await serverSpinUpChannel.ExchangeDeclareAsync(exchange: "ows.serverspinup",
                             type: "direct",
                             durable: false,
                             autoDelete: false);
 
-            serverSpinUpChannel.QueueDeclare(queue: serverSpinUpQueueNameGUID.ToString(),
+            await serverSpinUpChannel.QueueDeclareAsync(queue: serverSpinUpQueueNameGUID.ToString(),
                                          durable: false,
                                          exclusive: true,
                                          autoDelete: true,
                                          arguments: null);
-            serverSpinUpChannel.QueueBind(serverSpinUpQueueNameGUID.ToString(), "ows.serverspinup", String.Format("ows.serverspinup.{0}", _worldServerId));
-            serverSpinUpChannel.BasicQos(0, 1, false);
+            await serverSpinUpChannel.QueueBindAsync(serverSpinUpQueueNameGUID.ToString(), "ows.serverspinup", String.Format("ows.serverspinup.{0}", _worldServerId));
+            await serverSpinUpChannel.BasicQosAsync(0, 1, false);
 
 
             // create channel for server shut down
-            serverShutDownChannel = connection.CreateModel();
+            serverShutDownChannel = await connection.CreateChannelAsync();
 
             serverShutDownQueueNameGUID = Guid.NewGuid();
 
-            serverShutDownChannel.ExchangeDeclare(exchange: "ows.servershutdown",
+            await serverShutDownChannel.ExchangeDeclareAsync(exchange: "ows.servershutdown",
                             type: "direct",
                             durable: false,
                             autoDelete: false);
 
-            serverShutDownChannel.QueueDeclare(queue: serverShutDownQueueNameGUID.ToString(),
+            await serverShutDownChannel.QueueDeclareAsync(queue: serverShutDownQueueNameGUID.ToString(),
                                          durable: false,
                                          exclusive: true,
                                          autoDelete: true,
                                          arguments: null);
-            serverShutDownChannel.QueueBind(serverShutDownQueueNameGUID.ToString(), "ows.servershutdown", String.Format("ows.servershutdown.{0}", _worldServerId));
-            serverShutDownChannel.BasicQos(0, 1, false);
+            await serverShutDownChannel.QueueBindAsync(serverShutDownQueueNameGUID.ToString(), "ows.servershutdown", String.Format("ows.servershutdown.{0}", _worldServerId));
+            await serverShutDownChannel.BasicQosAsync(0, 1, false);
 
 
-            connection.ConnectionShutdown += RabbitMQ_ConnectionShutdown;
+            connection.ConnectionShutdownAsync += RabbitMQ_ConnectionShutdownAsync;
 
             Log.Information("Registered OWS Instance Launcher with RabbitMQ ServerSpinUp Queue Success!");
         }
 
         //protected override Task ExecuteAsync(CancellationToken stoppingToken)
-        public void DoWork()
+        public async Task DoWorkAsync()
         {
             //This will be null if there was a problem with initialization in the constructor
             if (_owsInstanceLauncherOptions == null)
@@ -183,7 +181,7 @@ namespace OWSInstanceLauncher.Services
             //Server Spin Up
             var serverSpinUpConsumer = new AsyncEventingBasicConsumer(serverSpinUpChannel);
 
-            serverSpinUpConsumer.Received += (model, ea) =>
+            serverSpinUpConsumer.ReceivedAsync += (model, ea) =>
             {
                 Log.Information("Server Spin Up Message Received");
                 var body = ea.Body;
@@ -198,19 +196,19 @@ namespace OWSInstanceLauncher.Services
                 return Task.CompletedTask;
             };
 
-            serverSpinUpConsumer.Shutdown += OnServerSpinUpConsumerShutdown;
-            serverSpinUpConsumer.Registered += OnServerSpinUpConsumerRegistered;
-            serverSpinUpConsumer.Unregistered += OnServerSpinUpConsumerUnregistered;
-            serverSpinUpConsumer.ConsumerCancelled += OnServerSpinUpConsumerConsumerCancelled;
+            serverSpinUpConsumer.ShutdownAsync += OnServerSpinUpConsumerShutdown;
+            serverSpinUpConsumer.RegisteredAsync += OnServerSpinUpConsumerRegistered;
+            serverSpinUpConsumer.UnregisteredAsync += OnServerSpinUpConsumerUnregistered;
+            //serverSpinUpConsumer.ConsumerCancelled += OnServerSpinUpConsumerConsumerCancelled;
 
-            serverSpinUpChannel.BasicConsume(queue: serverSpinUpQueueNameGUID.ToString(),
+            await serverSpinUpChannel.BasicConsumeAsync(queue: serverSpinUpQueueNameGUID.ToString(),
                                          autoAck: true,
                                          consumer: serverSpinUpConsumer);
 
             //Server Shut Down
             var serverShutDownConsumer = new AsyncEventingBasicConsumer(serverShutDownChannel);
 
-            serverShutDownConsumer.Received += (model, ea) =>
+            serverShutDownConsumer.ReceivedAsync += (model, ea) =>
             {
                 Log.Information("Message Received");
                 var body = ea.Body;
@@ -223,12 +221,12 @@ namespace OWSInstanceLauncher.Services
                 return Task.CompletedTask;
             };
 
-            serverShutDownConsumer.Shutdown += OnServerShutDownConsumerShutdown;
-            serverShutDownConsumer.Registered += OnServerShutDownConsumerRegistered;
-            serverShutDownConsumer.Unregistered += OnServerShutDownConsumerUnregistered;
-            serverShutDownConsumer.ConsumerCancelled += OnServerShutDownConsumerConsumerCancelled;
+            serverShutDownConsumer.ShutdownAsync += OnServerShutDownConsumerShutdown;
+            serverShutDownConsumer.RegisteredAsync += OnServerShutDownConsumerRegistered;
+            serverShutDownConsumer.UnregisteredAsync += OnServerShutDownConsumerUnregistered;
+            //serverShutDownConsumer.ConsumerCancelled += OnServerShutDownConsumerConsumerCancelled;
 
-            serverShutDownChannel.BasicConsume(queue: serverShutDownQueueNameGUID.ToString(),
+            await serverShutDownChannel.BasicConsumeAsync(queue: serverShutDownQueueNameGUID.ToString(),
                                          autoAck: true,
                                          consumer: serverShutDownConsumer);
 
@@ -442,38 +440,18 @@ namespace OWSInstanceLauncher.Services
             return;
         }
 
-        private async Task UpdateZoneServerStatusReady(int zoneInstanceID)
-        {
-            var instanceManagementHttpClient = _httpClientFactory.CreateClient("OWSInstanceManagement");
-
-            var setZoneInstanceStatusRequestPayload = new
-            {
-                request = new SetZoneInstanceStatusRequestPayload
-                {
-                    ZoneInstanceID = zoneInstanceID,
-                    InstanceStatus = 2 //Ready
-                }
-            };
-
-            var setZoneInstanceStatusRequest = new StringContent(JsonSerializer.Serialize(setZoneInstanceStatusRequestPayload), Encoding.UTF8, "application/json");
-
-            var responseMessage = await instanceManagementHttpClient.PostAsync("api/Instance/SetZoneInstanceStatus", setZoneInstanceStatusRequest);
-
-            return;
-        }
-
-        private Task OnServerSpinUpConsumerConsumerCancelled(object sender, ConsumerEventArgs e) { return Task.CompletedTask; }
         private Task OnServerSpinUpConsumerUnregistered(object sender, ConsumerEventArgs e) { return Task.CompletedTask; }
         private Task OnServerSpinUpConsumerRegistered(object sender, ConsumerEventArgs e) { return Task.CompletedTask; }
         private Task OnServerSpinUpConsumerShutdown(object sender, ShutdownEventArgs e) { return Task.CompletedTask; }
 
-        private Task OnServerShutDownConsumerConsumerCancelled(object sender, ConsumerEventArgs e) { return Task.CompletedTask; }
         private Task OnServerShutDownConsumerUnregistered(object sender, ConsumerEventArgs e) { return Task.CompletedTask; }
         private Task OnServerShutDownConsumerRegistered(object sender, ConsumerEventArgs e) { return Task.CompletedTask; }
         private Task OnServerShutDownConsumerShutdown(object sender, ShutdownEventArgs e) { return Task.CompletedTask; }
 
-
-        private void RabbitMQ_ConnectionShutdown(object sender, ShutdownEventArgs e) { }
+        private Task RabbitMQ_ConnectionShutdownAsync(object sender, ShutdownEventArgs @event)
+        {
+            return Task.CompletedTask;
+        }
 
         public void Dispose()
         {
@@ -490,15 +468,15 @@ namespace OWSInstanceLauncher.Services
 
             if (serverSpinUpChannel != null)
             {
-                serverSpinUpChannel.Close();
+                serverSpinUpChannel.CloseAsync().RunSynchronously();
             }
             if (serverShutDownChannel != null)
             {
-                serverShutDownChannel.Close();
+                serverShutDownChannel.CloseAsync().RunSynchronously();
             }
             if (connection != null)
             {
-                connection.Close();
+                connection.CloseAsync().RunSynchronously();
             }
 
             Log.Information("Done!");

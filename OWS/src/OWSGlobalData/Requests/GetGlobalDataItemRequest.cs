@@ -1,8 +1,6 @@
 ﻿using OWSData.Models.Tables;
 using OWSData.Repositories.Interfaces;
 using OWSShared.Interfaces;
-using System.Threading.Tasks;
-using System;
 
 namespace OWSGlobalData.Requests
 {

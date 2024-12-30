@@ -2,7 +2,7 @@
 {
     public interface IInstanceLauncherJob
     {
-        void DoWork();
+        Task DoWorkAsync();
         void Dispose();
     }
 }

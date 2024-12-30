@@ -1,8 +1,4 @@
-﻿using Microsoft.Extensions.Hosting;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-using SimpleInjector.Lifestyles;
+﻿using SimpleInjector.Lifestyles;
 
 
 namespace OWSInstanceLauncher.Services
@@ -45,7 +41,7 @@ namespace OWSInstanceLauncher.Services
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //this.logger.LogError(ex, ex.Message);
             }
@@ -69,7 +65,7 @@ namespace OWSInstanceLauncher.Services
                     this.settings.Dispose(service);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //this.logger.LogError(ex, ex.Message);
             }

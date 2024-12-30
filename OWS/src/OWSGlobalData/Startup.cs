@@ -1,11 +1,4 @@
-﻿using System;
-using System.IO;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.DataProtection;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+﻿using Microsoft.AspNetCore.DataProtection;
 using Microsoft.OpenApi.Models;
 using OWSData.Repositories.Interfaces;
 using OWSShared.Implementations;

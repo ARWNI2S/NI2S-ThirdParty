@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OWSExternalLoginProviders.Responses;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace OWSExternalLoginProviders.Interfaces
 {

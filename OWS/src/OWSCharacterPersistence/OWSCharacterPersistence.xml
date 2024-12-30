@@ -4,7 +4,14 @@
         <name>OWSCharacterPersistence</name>
     </assembly>
     <members>
-        <!-- Badly formed XML comment ignored for member "T:OWSCharacterPersistence.Controllers.AbilitiesController" -->
+        <member name="T:OWSCharacterPersistence.Controllers.AbilitiesController">
+            <summary>
+            Ability related API calls.
+            </summary>
+            <remarks>
+            Contains ability related API calls that are only accessible internally.
+            </remarks>
+        </member>
         <member name="M:OWSCharacterPersistence.Controllers.AbilitiesController.#ctor(OWSData.Repositories.Interfaces.ICharactersRepository,OWSShared.Interfaces.IHeaderCustomerGUID)">
             <summary>
             Constructor for Ability related API calls.

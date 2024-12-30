@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace OWSShared.Interfaces
+﻿namespace OWSShared.Interfaces
 {
     public interface IGetReadOnlyPublicCharacterData
     {
